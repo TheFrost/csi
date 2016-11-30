@@ -1,0 +1,335 @@
+/*base styles*/
+.b-label {
+  font-weight 300
+  font-size 1.25em
+
+  color white
+
+  opacity 0.3
+}
+
+/*Login*/
+.o-login {
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  z-index 300
+
+  display table
+  width 100%
+  height 100%
+  padding 1em
+
+  text-align center
+
+  background url('../img/bg-login.jpg') no-repeat center center rgba(29, 42, 67, 0.9)
+  background-size cover
+  color white
+
+  overflow-y scroll
+
+  +above(768px) {
+    overflow hidden
+  }
+
+  &__container {
+    vertical-align middle
+
+    display table-cell
+    width 100%
+  }
+
+  &__inner {
+    max-width 372px
+    margin 0 auto
+  }
+
+  &__logo {
+
+    img {
+      display inline-block
+      width 150px
+
+      +above(400px) {
+        width auto
+      }
+    }
+  }
+
+  &__title {
+    margin-top 2rem
+    margin-bottom 3rem
+
+    font-weight 100
+    font-size 1.75em
+
+    +above(400px) {
+      margin-top 1em
+
+      font-size 2.25em
+    }
+  }
+
+  &__group {
+    position relative
+
+    display block
+
+    text-align left
+  }
+
+  &__input {
+    &-ico {
+      position absolute
+      top 50%
+      right 0.5em
+
+      display block
+      margin-top -1em
+
+      font-size 1.5em
+
+      &:after {
+        font-family FontAwesome
+        color currentColor
+      }
+    }
+  }
+
+  &__forget {
+    margin 0
+
+    font-size 0.9em
+
+    a {
+      font-weight 700
+
+      color currentColor
+
+      &:hover {
+        text-decoration underline
+      }
+    }
+  }
+
+  &__submit {
+    position relative
+    margin 3em 0 0.5em 0
+    width 100%
+
+    text-align center
+    text-transform capitalize
+    line-height normal
+
+    border none
+    background-color c_blue !important
+    box-shadow 0 7px 14px 0 rgba(0, 0, 0, 0.28)
+
+    transition all 0.2s ease-in-out
+    overflow: hidden;
+
+    +above(400px) {
+      margin-top 4em
+    }
+
+    &:active {
+      top 1px
+    }
+
+    &:hover {
+      background-color darken(c_blue, 10%)
+    }
+
+    .o-direction {
+      padding 0.5em 1em
+
+      color white
+
+      transition all 0.2s ease-in-out
+    }
+
+    &[disabled] {
+      &:hover {
+        background-color c_blue
+
+        cursor default
+
+        .o-direction {
+          &:after {
+            content '\f00d'
+
+            width 15px
+            height auto
+            margin-left 16px
+            padding-bottom 1px
+
+            font-family FontAwesome
+            font-size 0.9em
+
+            background none
+          }
+        }
+      }
+    }
+
+    /*states*/
+    &.js-feedback {
+      .o-direction {
+        transform translate3d(100%, 0, 0)
+      }
+
+      .o-login__status {
+        transform translate3d(0, -50%, 0)
+      }
+    }
+
+    &.js-waiting {
+      background-color lighten(c_blue, 10%) !important
+      cursor default
+
+      &:hover {
+        background-color lighten(c_blue, 10%) !important
+      }
+
+      .o-login__status {
+        .fa {
+          width: 1.28571429em;
+          animation: fa-spin 1s infinite steps(8);
+
+          &:before {
+            content "\f110"
+          }
+        }
+      }
+    }
+
+    &.js-success {
+      background-color c_success_bg !important
+
+      .o-login__status {
+        color c_success_txt !important
+
+        .fa {
+          &:before {
+            content "\f00c"
+          }
+        }
+      }
+    }
+
+    &.js-error {
+      background-color c_error_bg !important
+
+      .o-login__status {
+        color c_error_txt !important
+
+        .fa {
+          &:before {
+            content "\f00d"
+          }
+        }
+      }
+    }
+  }
+
+  &__status {
+    position absolute
+    top 50%
+    left 0
+
+    width 100%
+
+    text-align center
+
+    color white
+
+    transform translate3d(-100%, -50%, 0)
+    transition all 0.2s ease-in-out
+
+    .fa {
+      font-size 2em
+
+      color currentColor
+    }
+  }
+
+  /*Angular material component*/
+  md-input-container {
+    /*states*/
+    &.md {
+      &-input {
+        &-has-value {
+          label {
+            @extend .b-label;
+          }
+        }
+
+        &-focused {
+          label {
+            @extend .b-label;
+          }
+
+          .md-input {
+            border-color white
+          }
+        }
+
+        &-invalid {
+          label {
+            color rgb(221,44,0)
+
+            opacity 1
+          }
+
+          .md-input {
+            border-color rgb(221,44,0)
+          }
+        }
+      }
+    }
+
+    /*children*/
+    label {
+      @extend .b-label;
+    }
+
+    .md {
+      &-input {
+        height auto
+        padding 1rem 0 !important
+
+        font-size 1.25em
+
+        border-bottom 2px solid white
+        color currentColor
+
+        +above(400px) {
+          padding 0.75rem 0 !important
+        }
+
+        &[disabled] {
+          color rgba(white, 0.3)
+
+          & ~ .o-login__input-ico {
+            &:after {
+              content '\f023'
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,74 @@
+/*Direction text with icon*/
+.o-direction {
+  display block
+  font-size 20px
+  font-weight 300
+
+  &:after,
+  &:before {
+    vertical-align middle
+
+    display inline-block
+    width 14px
+    height 14px
+
+    background url('../img/sprite-arrows.svg')
+
+    transition margin 0.2s ease-in-out
+  }
+
+  &:after {
+    margin-left 0.5em
+  }
+
+  &:before {
+    margin-right 0.5em
+  }
+
+  &:hover {
+    &:after {
+      margin-left 0.8em
+    }
+    &:before {
+      margin-right 0.8em
+    }
+  }
+
+  &--front {
+    &-white,
+    &-black {
+      &:after {
+        content ''
+      }
+    }
+    &-white {
+      &:after {
+        background-position -14px 0
+      }
+    }
+    &-black {
+      &:after {
+        background-position -14px -14px
+      }
+    }
+  }
+
+  &--back {
+    &-white,
+    &-black {
+      &:before {
+        content ''
+      }
+    }
+    &-white {
+      &:before {
+        background-position 0 0
+      }
+    }
+    &-black {
+      &:before {
+        background-position 0 -14px
+      }
+    }
+  }
+}

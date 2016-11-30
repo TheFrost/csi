@@ -1,0 +1,112 @@
+/*Shortcuts*/
+.o-shortcuts {
+  position relative
+
+  text-align center
+
+  box-shadow 0 2px 0 0 rgba(23, 41, 91, 0.2)
+
+  &:after {
+    content ''
+
+    position absolute
+    left 0
+    bottom 0
+    z-index 9
+
+    display block
+    width 100%
+    height 1px
+
+    box-shadow 0 0 10px 0 rgba(black, 0.7)
+  }
+
+  &--transparent {
+    box-shadow none
+
+    .o-shortcuts {
+      &__inner {
+        background-color transparent
+      }
+
+      &__link {
+        &:hover {
+          background-color transparent
+        }
+      }
+    }
+
+    &:after {
+      display none
+    }
+  }
+
+  &__inner {
+    position relative
+    z-index 10
+
+    padding 1em
+
+    background-color c_gray
+
+    +above(bp_medium) {
+      padding 1em 3em
+    }
+  }
+
+  &__list {
+    position relative
+
+    display table
+    width 100%
+  }
+
+  &__item {
+    display table-cell
+    width 25%
+  }
+
+  &__link {
+    display block
+    padding 0.5em
+    min-height 90px
+
+    color c_gray-alpha
+
+    transition all 0.2s ease-in-out
+
+    +above(bp_medium) {
+      padding 1em
+      min-height 140px
+    }
+
+    &:hover {
+      background-color darken(c_gray, 10%)
+    }
+  }
+
+  &__icon {
+    width 2em
+    height 2em
+    margin-bottom 1em
+
+    color c_gray-beta
+
+    +above(bp_medium) {
+      width 2.75em
+      height 2.75em
+    }
+  }
+
+  &__label {
+    display block
+    max-width 140px
+    margin 0 auto
+
+    font-size 0.7em
+
+    +above(bp_medium) {
+      font-size 1.25em
+    }
+  }
+}

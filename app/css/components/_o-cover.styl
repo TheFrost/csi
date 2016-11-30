@@ -1,0 +1,29 @@
+/*Cover component*/
+.o-cover {
+  padding 4em 1em
+
+  text-align center
+
+  background-size cover !important
+
+  &__info {
+    display inline-block
+
+    &-inner {
+      display table
+    }
+  }
+
+  &__block {
+    display table-cell
+    vertical-align middle
+
+    padding 0 0.5em
+
+    &:last-child {
+      text-align left
+      font-size 1.5em
+      line-height 1
+    }
+  }
+}

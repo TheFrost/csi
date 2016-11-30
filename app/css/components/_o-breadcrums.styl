@@ -1,0 +1,47 @@
+/*breadcrums*/
+.o-breadcrums {
+  margin-top 5em
+
+  &__list {
+    display table
+  }
+
+  &__item {
+    display table-cell
+
+    &:first-child {
+      // padding-left 0.5em
+
+      .o-breadcrums__link {
+        &:before {
+          content ''
+          margin 0
+        }
+      }
+    }
+
+    &.js-active {
+      .o-breadcrums__link {
+        font-weight 500
+      }
+    }
+  }
+
+  &__link {
+    display block
+    padding-right 0.5em
+
+    color c_blue_gamma
+
+    &:hover {
+      text-decoration underline
+    }
+
+    &:before {
+      content '>'
+
+      display inline-block
+      margin-right 0.5em
+    }
+  }
+}

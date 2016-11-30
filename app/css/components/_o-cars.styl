@@ -1,0 +1,117 @@
+/*cars info*/
+.o-cars {
+
+  /*table list*/
+  &__index {
+    display inline-block
+    width 30px
+    height 30px
+
+    text-align center
+    line-height 30px
+
+    border-radius 50%
+    background-color c_gray-gamma
+  }
+
+  &__vin {
+    font-weight 500
+  }
+
+  &__table {
+
+    &:after {
+      content ''
+
+      position absolute
+      left 0
+      top 0
+      z-index 10
+
+      display block
+      height 60px
+      width 100%
+
+      background-color c_gray
+    }
+
+    thead {
+      background-color c_gray
+    }
+
+    th {
+      position relative
+      z-index 11
+
+      padding 1rem
+
+      text-align left
+    }
+
+    td {
+      font-weight normal
+
+      color c_gray-alpha
+    }
+  }
+
+  /*Detail*/
+  &__cover {
+    background url('../img/vehiculo-portada.png') no-repeat center center
+  }
+
+  &__prop {
+    span {
+      display block
+    }
+  }
+
+  &__brand {
+    font-size 1.75em
+  }
+
+  &__family {
+    font-size 2em
+    font-weight 500
+  }
+
+  &__model {
+    margin-bottom 5px
+  }
+
+  &__color {
+    vertical-align middle
+
+    display inline-block !important
+
+    width 0.75em
+    height 0.75em
+
+    border-radius 50%
+  }
+
+  &__travel {
+    border-bottom 1px solid rgba(black, 0.1)
+    &-title {
+      margin 0
+      font-size 1.1rem
+      font-weight 300
+    }
+    &-data {
+      font-size 1.5em
+      font-weight 500
+    }
+
+    td {
+      padding 1em 2em
+
+      line-height 1.5
+
+      border-left 1px solid rgba(black, 0.1)
+
+      &:first-child {
+        border-left none
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+<div>
+
+  <!-- Breadcrums -->
+  <div class="o-container">
+    <div class="o-breadcrums">
+      <ul class="o-breadcrums__list u-listnostyle">
+        <li class="o-breadcrums__item">
+          <a href="#" class="o-breadcrums__link">Home</a>
+        </li>
+        <li class="o-breadcrums__item">
+          <a href="#" class="o-breadcrums__link">Listado de viajes</a>
+        </li>
+        <li class="o-breadcrums__item">
+          <a href="#" class="o-breadcrums__link">Detalle de viaje</a>
+        </li>
+        <li class="o-breadcrums__item js-active">
+          <a href="#" class="o-breadcrums__link">Detalle de vehículo</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- // end Breadcrums -->
+
+  <!-- Page head -->
+  <header class="o-pagehead">
+    <div class="o-container">
+      <div class="o-head o-head--bordered">
+        <h1 class="o-head__title">Detalle de vehículo</h1>
+      </div>
+    </div>
+  </header>
+  <!-- // end Page head -->
+
+  <!-- Tabs -->
+  <md-content class="o-tabs">
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Información">
+        <md-content>
+
+          <!-- Car detail -->
+          <div class="o-cars__detail">
+
+            <!-- Car cover prop -->
+            <div class="o-cover o-cars__cover">
+              <div class="o-cover__info u-cf">
+                <div class="o-cover__info-inner">
+                  <div class="o-cover__block">
+                    <figure class="o-cars__logo">
+                      <img src="img/lg-bmw.png" class="u-imgresponsive" alt="">
+                    </figure>
+                  </div>
+                  <div class="o-cover__block">
+                    <div class="o-cars__prop">
+                      <span class="o-cars__brand">BMW</span>
+                      <span class="o-cars__family">Serie 3 Coupe</span>
+                      <span class="o-cars__model">325i</span>
+                      <span>Color Rojo <span class="o-cars__color" style="background-color:#b32114;"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- // end Car cover prop -->
+
+            <!-- Car travel detail -->
+            <div class="o-container">
+              <table class="o-table o-cars__travel">
+                <tbody>
+                  <tr>
+                    <td>
+                      <h1 class="o-cars__travel-title">VIN</h1>
+                      <span class="o-cars__travel-data">1HV25 8372 6112 1311</span>
+                    </td>
+                    <td>
+                      <h1 class="o-cars__travel-title">Viaje</h1>
+                      <span class="o-cars__travel-data">#536476</span>
+                    </td>
+                    <td>
+                      <h1 class="o-cars__travel-title">Posición</h1>
+                      <span class="o-cars__travel-data">9</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <h1 class="o-cars__travel-title">ETA</h1>
+                      <span class="o-cars__travel-data">17/09/2016 - 20:00</span>
+                    </td>
+                    <td>
+                      <h1 class="o-cars__travel-title">Estatus</h1>
+                      <span class="o-cars__travel-data">Por llegar</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">
+                      <h1 class="o-cars__travel-title">Origen</h1>
+                      <span class="o-cars__travel-data">Lázaro Cárdenas</span>
+                    </td>
+                    <td colspan="2">
+                      <h1 class="o-cars__travel-title">Destino</h1>
+                      <span class="o-cars__travel-data">León</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- // end Car travel detail -->
+
+          </div>
+          <!-- // end Car detail -->
+
+        </md-content>
+      </md-tab>
+      <md-tab label="Accesorios" ng-disabled="true">
+        <md-content>
+
+          <h1>Accesorios</h1>
+
+        </md-content>
+      </md-tab>
+      <md-tab label="Daños" ng-disabled="true">
+        <md-content>
+
+          <h1>Daños</h1>
+
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+  <!-- // end Tabs -->
+</div>

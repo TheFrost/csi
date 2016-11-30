@@ -1,0 +1,29 @@
+/*Head*/
+.o-head {
+  display inline-block
+  &__title {
+    margin 0
+
+    font-weight 300
+    font-size 24px
+    text-transform uppercase
+
+    color c_blue_delta
+  }
+
+  &--bordered {
+    padding-bottom 0.5rem
+    border-bottom 1px solid c_blue_delta
+  }
+
+  &--divider {
+    display block
+    padding 1em 0
+
+    background-color c_gray
+
+    .o-head__title {
+      @extend .o-container
+    }
+  }
+}

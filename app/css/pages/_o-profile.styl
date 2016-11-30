@@ -1,0 +1,53 @@
+/*Profile*/
+.o-profile {
+  &__cover {
+    background url('../img/portada-configuracion.jpg') no-repeat center center
+  }
+
+  &__face {
+    width 150px
+    height 150px
+
+    border-radius 50%
+
+    overflow hidden
+  }
+
+  &__info {
+    color white
+
+    span {
+      display block
+    }
+  }
+
+  &__name {
+    font-size 2em
+    font-weight 500
+  }
+
+  &__email {
+    font-size 1.5em
+  }
+
+  &__shortcuts {
+    margin-top 4em
+
+    .o-shortcuts {
+      &__link {
+        &:hover {
+          .o-shortcuts {
+            &__icon,
+            &__label {
+              color c_blue_gamma
+            }
+          }
+        }
+      }
+
+      &__label {
+        max-width 100%
+      }
+    }
+  }
+}

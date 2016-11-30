@@ -1,0 +1,32 @@
+/*Tabs component*/
+.o-tabs {
+  md-tabs-wrapper {
+    border none !important
+  }
+
+  md-tabs-canvas {
+    @extend .o-container
+  }
+
+  .md-tab {
+    color c_gray-beta
+  }
+
+  .md-tab.md-active {
+    color c_gray-alpha
+  }
+
+  md-ink-bar {
+    height 5px
+
+    background-color c_blue
+  }
+
+
+  &--border-head {
+    md-tabs-wrapper {
+      border-top 1px solid rgba(black, 0.1) !important
+      border-bottom 1px solid rgba(black, 0.1) !important
+    }
+  }
+}

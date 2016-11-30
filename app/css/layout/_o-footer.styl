@@ -1,0 +1,33 @@
+/*footer*/
+.o-footer {
+  position fixed
+  bottom 0
+  left 0
+  z-index 8
+
+  display none
+  width 100%
+  padding 1.41em 2em
+
+  background-color c_blue_alpha
+
+  +above(bp_medium) {
+    display block
+  }
+
+  &__link {
+    display inline-block
+
+    font-size 0.9em
+
+    color white
+
+    &:hover {
+      text-decoration underline
+    }
+
+    &:first-child {
+      margin-right 5em
+    }
+  }
+}

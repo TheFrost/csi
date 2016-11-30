@@ -1,0 +1,107 @@
+/*Header*/
+.o-header {
+  position fixed
+  top 0
+  left 0
+  z-index 180
+
+  width 100%
+  height 64px
+  padding 1em 2em
+
+  background-color rgba(c_blue_alpha, 0.9)
+
+  &__block {
+    display table
+    height 32px
+    &-item {
+      display table-cell
+
+      vertical-align middle
+    }
+  }
+
+  &__brand {
+
+    padding-left 3em
+
+    +above(bp_medium) {
+      padding-left 6.5em
+    }
+
+    &-logo,
+    &-link {
+      width 108px
+      height 22px
+    }
+
+    &-logo {
+      margin 0
+    }
+
+    &-link {
+      display block
+
+      text-indent: 99999px;
+
+      background url('../img/lg-csi-header.png') no-repeat center center
+      background-size cover
+    }
+  }
+
+  &__notifications {
+    position relative
+
+    width 2em
+    height 2em
+
+    text-align center
+    line-height 2em
+
+    color white
+
+    &-count {
+      position absolute
+      top 0
+      right 0
+
+      width 18px
+      height 18px
+      margin-top -3px
+      margin-right -3px
+
+      font-size 0.7em
+      font-weight 700
+      line-height 19px
+      text-align center
+
+      border-radius 50%
+      background-color c_red
+      color white
+    }
+
+    .o-icon {
+      width 1.3em
+      height 1.3em
+    }
+  }
+
+  &__profile {
+    display none
+    padding-left 6.5em
+
+    +above(bp_medium) {
+      display block
+    }
+
+    &-pic {
+      display block
+      width 2em
+      height 2em
+
+      border-radius 50%
+
+      overflow hidden
+    }
+  }
+}
