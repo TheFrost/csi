@@ -6,25 +6,24 @@
     var home = this;
 
     home.shortcuts = {};
+    home.travels = [];
 
     // Private Methods
     var _renderShortcuts = function (shortcuts) {
-      console.log(shortcuts);
-
       angular.forEach(shortcuts, function (value) {
         home.shortcuts[Object.keys(value)[0]] = value[Object.keys(value)[0]] == 'true' ? true : false;
       });
     };
 
     var _renderSurvillanceTravels = function (travels) {
-      console.log(travels);
-    }
+      home.travels = travels;
+    };
 
     // Simultaneus request control
     var _travelsRecords = {
       'TripType': 'CURRENT',
       'Page': 1,
-      'EnVigilancia': 1
+      'EnVigilancia': 0
     };
 
     $q.all({
@@ -39,8 +38,7 @@
   HomeCtrl.$inject = ['$q', 'ApiService', 'API_ENDPOINTS'];
 
 
-  angular
-    .module('Csi.home', [])
+  angular.module('Csi.home')
     .controller('HomeCtrl', HomeCtrl);
 
 

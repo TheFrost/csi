@@ -51,9 +51,9 @@
                   </div>
                   <div class="o-cover__block">
                     <div class="o-cars__prop">
-                      <span class="o-cars__brand">BMW</span>
-                      <span class="o-cars__family">Serie 3 Coupe</span>
-                      <span class="o-cars__model">325i</span>
+                      <span class="o-cars__brand" ng-bind="vehicleDetail.info.Marca"></span>
+                      <span class="o-cars__family" ng-bind="vehicleDetail.info.Familia"></span>
+                      <span class="o-cars__model" ng-bind="vehicleDetail.info.Modelo"></span>
                       <span>Color Rojo <span class="o-cars__color" style="background-color:#b32114;"></span></span>
                     </div>
                   </div>
@@ -69,35 +69,35 @@
                   <tr>
                     <td>
                       <h1 class="o-cars__travel-title">VIN</h1>
-                      <span class="o-cars__travel-data">1HV25 8372 6112 1311</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.VIN"></span>
                     </td>
                     <td>
                       <h1 class="o-cars__travel-title">Viaje</h1>
-                      <span class="o-cars__travel-data">#536476</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.NumViaje"></span>
                     </td>
                     <td>
                       <h1 class="o-cars__travel-title">Posición</h1>
-                      <span class="o-cars__travel-data">9</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.Posicion"></span>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2">
                       <h1 class="o-cars__travel-title">ETA</h1>
-                      <span class="o-cars__travel-data">17/09/2016 - 20:00</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.ETA"></span>
                     </td>
                     <td>
                       <h1 class="o-cars__travel-title">Estatus</h1>
-                      <span class="o-cars__travel-data">Por llegar</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.Estatus"></span>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="1">
                       <h1 class="o-cars__travel-title">Origen</h1>
-                      <span class="o-cars__travel-data">Lázaro Cárdenas</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.Origen"></span>
                     </td>
                     <td colspan="2">
                       <h1 class="o-cars__travel-title">Destino</h1>
-                      <span class="o-cars__travel-data">León</span>
+                      <span class="o-cars__travel-data" ng-bind="vehicleDetail.info.Destino"></span>
                     </td>
                   </tr>
                 </tbody>

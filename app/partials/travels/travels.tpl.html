@@ -1,103 +1,35 @@
 <div>
-  <table class="o-table o-table--bordered o-travels__table o-travels__table--desktop" ng-controller="TravelsCtrl as travel">
+  <table class="o-table o-table--bordered o-travels__table o-travels__table--desktop">
     <tbody>
-      <tr ng-click="travel.goDetail()">
-        <!-- Id travel -->
+      <tr ng-repeat="travel in $ctrl.travels" ng-click="$ctrl.goToDetail(travel.IdViaje)">
         <td>
           Viaje:
           <br>
-          <span class="o-travels__important">#536476</span>
+          <span class="o-travels__important" ng-bind="travel.IdViaje"></span>
         </td>
-        <!-- Status and start info travel -->
         <td>
           Estatus:
-          <span class="o-travels__status o-travels__status--porllegar">Por llegar</span>
+          <span class="o-travels__status o-travels__status--porllegar" ng-bind="travel.Status"></span>
           <br>
-          Origen: Lázaro C.
+          Origen:
+          <span ng-bind="travel.Origin"></span>
           <br>
-          Vehículos: 7
+          Vehículos:
+          <span ng-bind="travel.Vins"></span>
         </td>
-        <!-- Date and end info travel -->
         <td>
-          ETA: <span class="o-travels__important">17/09/2016 - 20:00</span>
+          ETA: <span class="o-travels__important" ng-bind="travel.ETA"></span>
           <br>
-          Destino: León
+          Destino:
+          <span ng-bind="travel.Destination"></span>
           <br>
-          Daños: 1
+          Daños:
+          <span ng-bind="travel.Claims"></span>
         </td>
-        <!-- Feedback ctrl -->
         <td class="o-travels__feedback u-align-right">
           <a href="#" class="o-travels__feedback-action">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
-              <span class="o-travels__feedback-cal"></span>
-            </i>
-            <span class="o-travels__feedback-label">Calificar</span>
-          </a>
-        </td>
-      </tr>
-      <tr ng-click="travel.goDetail()">
-        <!-- Id travel -->
-        <td>
-          Viaje:
-          <br>
-          <span class="o-travels__important">#536476</span>
-        </td>
-        <!-- Status and start info travel -->
-        <td>
-          Estatus:
-          <span class="o-travels__status o-travels__status--entregado">Entregado</span>
-          <br>
-          Origen: Lázaro C.
-          <br>
-          Vehículos: 7
-        </td>
-        <!-- Date and end info travel -->
-        <td>
-          ETA: <span class="o-travels__important">17/09/2016 - 20:00</span>
-          <br>
-          Destino: León
-          <br>
-          Daños: 1
-        </td>
-        <!-- Feedback ctrl -->
-        <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action js-done">
-            <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
-              <span class="o-travels__feedback-cal">3</span>
-            </i>
-            <span class="o-travels__feedback-label">Calificar</span>
-          </a>
-        </td>
-      </tr>
-      <tr ng-click="travel.goDetail()">
-        <!-- Id travel -->
-        <td>
-          Viaje:
-          <br>
-          <span class="o-travels__important">#536476</span>
-        </td>
-        <!-- Status and start info travel -->
-        <td>
-          Estatus:
-          <span class="o-travels__status o-travels__status--entregado">Entregado</span>
-          <br>
-          Origen: Lázaro C.
-          <br>
-          Vehículos: 7
-        </td>
-        <!-- Date and end info travel -->
-        <td>
-          ETA: <span class="o-travels__important">17/09/2016 - 20:00</span>
-          <br>
-          Destino: León
-          <br>
-          Daños: 1
-        </td>
-        <!-- Feedback ctrl -->
-        <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action js-done">
-            <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
-              <span class="o-travels__feedback-cal">3</span>
+              <span class="o-travels__feedback-cal" ng-bind="travel.Score"></span>
             </i>
             <span class="o-travels__feedback-label">Calificar</span>
           </a>
@@ -109,7 +41,6 @@
   <table class="o-table o-table--bordered o-travels__table o-travels__table--mobile">
     <tbody>
       <tr>
-        <!-- Status and start info travel -->
         <td>
           Viaje:
           <br>
@@ -120,7 +51,6 @@
           Estatus:
           <span class="o-travels__status o-travels__status--entregado">Entregado</span>
         </td>
-        <!-- Date and end info travel -->
         <td>
           ETA:
           <br>
@@ -128,69 +58,10 @@
           <br>
           Destino: León
         </td>
-        <!-- Feedback ctrl -->
         <td class="o-travels__feedback u-align-right">
           <a href="#" class="o-travels__feedback-action">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
               <span class="o-travels__feedback-cal"></span>
-            </i>
-            <span class="o-travels__feedback-label">Calificar</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Viaje:
-          <br>
-          <span class="o-travels__important">#536476</span>
-          <br>
-          Origen: Lázaro C.
-          <br>
-          Estatus:
-          <span class="o-travels__status o-travels__status--porllegar">Por llegar</span>
-        </td>
-        <!-- Date and end info travel -->
-        <td>
-          ETA:
-          <br>
-          <span class="o-travels__important">17/09/2016 - 20:00</span>
-          <br>
-          Destino: León
-        </td>
-        <!-- Feedback ctrl -->
-        <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action js-done">
-            <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
-              <span class="o-travels__feedback-cal">3</span>
-            </i>
-            <span class="o-travels__feedback-label">Calificar</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Viaje:
-          <br>
-          <span class="o-travels__important">#536476</span>
-          <br>
-          Origen: Lázaro C.
-          <br>
-          Estatus:
-          <span class="o-travels__status o-travels__status--porllegar">Por llegar</span>
-        </td>
-        <!-- Date and end info travel -->
-        <td>
-          ETA:
-          <br>
-          <span class="o-travels__important">17/09/2016 - 20:00</span>
-          <br>
-          Destino: León
-        </td>
-        <!-- Feedback ctrl -->
-        <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action js-done">
-            <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
-              <span class="o-travels__feedback-cal">3</span>
             </i>
             <span class="o-travels__feedback-label">Calificar</span>
           </a>

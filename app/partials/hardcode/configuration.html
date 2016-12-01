@@ -31,13 +31,13 @@
       <div class="o-cover__info-inner">
         <div class="o-cover__block">
           <figure class="o-profile__face">
-            <img src="img/profile-generic.jpg" class="u-imgresponsive" alt="">
+            <img src="{{ main.user.avatar }}" class="u-imgresponsive" alt="">
           </figure>
         </div>
         <div class="o-cover__block">
           <div class="o-profile__info">
-            <span class="o-profile__name">Fernando Chavez</span>
-            <span class="o-profile__email">fchavez@ia.com.mx</span>
+            <span class="o-profile__name" ng-bind="main.user.name"></span>
+            <span class="o-profile__email" ng-bind="main.user.email"></span>
           </div>
         </div>
       </div>

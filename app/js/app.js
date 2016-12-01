@@ -30,26 +30,30 @@
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
+      .state('travelDetail', {
+        url: '/travel-detail/:travelId',
+        templateUrl: '../partials/hardcode/traveldetail.html',
+        controller: 'TravelDetailCtrl',
+        controllerAs: 'travelDetail'
+      })
+      .state('vehicleDetail', {
+        url: '/vehicle-detail/:vehicleVin',
+        templateUrl: '../partials/hardcode/cardetail.html',
+        controller: 'VehicleDetailCtrl',
+        controllerAs: 'vehicleDetail'
+      })
+      .state('config', {
+        url: '/config',
+        templateUrl: '../partials/hardcode/configuration.html'
+      })
 
       /*hardcode routes*/
       .state('travelList', {
         url: '/travel-list',
         templateUrl: '../partials/hardcode/travellist.html'
-      })
-      .state('travelDetail', {
-        url: '/travel-detail',
-        templateUrl: '../partials/hardcode/traveldetail.html'
-      })
-      .state('carDetail', {
-        url: '/car-detail',
-        templateUrl: '../partials/hardcode/cardetail.html'
-      })
-      .state('config', {
-        url: '/config',
-        templateUrl: '../partials/hardcode/configuration.html'
       });
 
-      $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
 
   };
 
@@ -93,10 +97,12 @@
     'ngMessages',
     'angularMoment',
     'angular-storage',
+    'Csi.common',
     'Csi.login',
     'Csi.home',
-    'Csi.map',
-    'Csi.common'
+    'Csi.travelDetail',
+    'Csi.vehicleDetail',
+    'Csi.map'
   ])
   .value('AccessToken', {
     key: null

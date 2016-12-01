@@ -222,7 +222,7 @@
           <div class="o-container">
             <!-- Cars table -->
             <div class="o-cars">
-              <table class="o-table o-cars__table" ng-controller="TravelsCtrl as travel">
+              <table class="o-table o-cars__table">
                 <thead>
                   <th>
                     <h1 class="o-head__title">Vin</h1>
@@ -235,89 +235,13 @@
                   </th>
                 </thead>
                 <tbody>
-                  <tr ng-click="travel.goCarDetail()">
+                  <tr ng-repeat="vehicle in travelDetail.vehicles" ng-click="travelDetail.goToDetail(vehicle.VIN)">
                     <td>
                       <span class="o-cars__index">1</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1311</span>
+                      <span class="o-cars__vin" ng-bind="vehicle.VIN"></span>
                     </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">2</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1322</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">3</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1333</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">4</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1344</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">5</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1355</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">6</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1366</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
-                  </tr>
-                  <tr ng-click="travel.goCarDetail()">
-                    <td>
-                      <span class="o-cars__index">7</span>
-                      <span class="o-cars__vin">1HV25 8372 6112 1377</span>
-                    </td>
-                    <td>
-                      Serie 2
-                    </td>
-                    <td>
-                      BMW
-                    </td>
+                    <td ng-bind="vehicle.Familia"></td>
+                    <td ng-bind="vehicle.Marca"></td>
                   </tr>
                 </tbody>
               </table>

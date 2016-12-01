@@ -8,7 +8,9 @@
       logout: '/Signout',
       getUser: '/UserProfile',
       getPreferences: '/Preferences',
-      getTravelList: '/TravelList'
+      getTravelList: '/TravelList',
+      getTravelDetail: '/TravelDetail',
+      getVehicleDetail: '/VehicleDetail',
     });
 
 }());
