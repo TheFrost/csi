@@ -1,7 +1,7 @@
 <div>
   <table class="o-table o-table--bordered o-travels__table o-travels__table--desktop">
     <tbody>
-      <tr ng-repeat="travel in $ctrl.travels" ng-click="$ctrl.goToDetail(travel.IdViaje)">
+      <tr ng-repeat="travel in travels" ng-click="goToDetail(travel.IdViaje)" class="a-fade">
         <td>
           Viaje:
           <br>

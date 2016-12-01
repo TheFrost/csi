@@ -8,7 +8,7 @@
     <div class="o-shortcuts">
       <div class="o-shortcuts__inner">
         <ul class="o-shortcuts__list u-listnostyle">
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.Tracking">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Tracking">
             <a ui-sref="map" class="o-shortcuts__link">
               <svg class="o-icon o-icon-map o-shortcuts__icon">
                 <use xlink:href="#icon-map"></use>
@@ -16,7 +16,7 @@
               <span class="o-shortcuts__label">Mapa de rastreo</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.Travels">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Travels">
             <a ui-sref="travelList" class="o-shortcuts__link">
               <svg class="o-icon o-icon-list o-shortcuts__icon">
                 <use xlink:href="#icon-list"></use>
@@ -24,7 +24,7 @@
               <span class="o-shortcuts__label">Listado de viajes</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.Qualification">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Qualification">
             <a ui-sref="travelList" class="o-shortcuts__link">
               <svg class="o-icon o-icon-feedback o-shortcuts__icon">
                 <use xlink:href="#icon-feedback"></use>
@@ -32,7 +32,7 @@
               <span class="o-shortcuts__label">Calificaciones pendientes</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.Claims">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Claims">
             <a href="#" class="o-shortcuts__link">
               <svg class="o-icon o-icon-claims o-shortcuts__icon">
                 <use xlink:href="#icon-claims"></use>
@@ -40,7 +40,7 @@
               <span class="o-shortcuts__label">Reclamos</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.NotificationsCenter">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.NotificationsCenter">
             <a href="#" class="o-shortcuts__link">
               <svg class="o-icon o-icon-notifications o-shortcuts__icon">
                 <use xlink:href="#icon-notifications"></use>
@@ -48,7 +48,7 @@
               <span class="o-shortcuts__label">Centro de notificaciones</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.Configuration">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Configuration">
             <a href="#" class="o-shortcuts__link">
               <svg class="o-icon o-icon-config o-shortcuts__icon">
                 <use xlink:href="#icon-config"></use>
@@ -56,7 +56,7 @@
               <span class="o-shortcuts__label">Configuración</span>
             </a>
           </li>
-          <li class="o-shortcuts__item" ng-if="home.shortcuts.HelpContact">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.HelpContact">
             <a href="#" class="o-shortcuts__link">
               <svg class="o-icon o-icon-help o-shortcuts__icon">
                 <use xlink:href="#icon-help"></use>
@@ -76,10 +76,10 @@
       </header>
 
       <!-- Travel list directive -->
-      <travel-list travels="home.travels"></travel-list>
+      <div travel-list-directive travels="home.travels"></div>
       <!-- // end Travel list directive -->
 
-      <footer class="o-travels__footer">
+      <footer class="o-travels__footer" ng-show="home.hasTravels">
         <a ui-sref="travelList" class="o-travels__seemore">Ver todo mi listado</a>
       </footer>
     </div>

@@ -21,6 +21,21 @@
 .u-align-right {
   text-align: right;
 }
+.a-fade.ng-animate {
+  transition: 0.5s linear opacity;
+}
+.a-fade.ng-enter {
+  opacity: 0;
+}
+.a-fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.a-fade.ng-leave {
+  opacity: 1;
+}
+.a-fade.ng-leave.ng-leave-active {
+  opacity: 0;
+}
 /*Base*/
 html,
 body {
@@ -741,11 +756,13 @@ md-content {
   position: relative;
   z-index: 10;
   padding: 1em;
+  min-height: 122px;
   background-color: #f6f6f6;
 }
 @media only screen and (min-width: 768px) {
   .o-shortcuts__inner {
     padding: 1em 3em;
+    min-height: 172px;
   }
 }
 .o-shortcuts__list {
