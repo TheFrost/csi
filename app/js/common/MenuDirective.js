@@ -52,9 +52,6 @@
         $scope.triggerActive = false;
         $scope.overlayActive = false;
 
-        setTimeout(function () {
-          console.log($scope.user);
-        }, 5000);
 
       }
     };
