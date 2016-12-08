@@ -1,9 +1,11 @@
 <!-- Home view -->
 <section class="o-home">
-  <header class="o-home__cover"></header>
-  <div class="o-home__content o-container">
-    <h1 class="o-home__title">Grupo CSI</h1>
 
+  <div id="homeSlider" class="o-slider o-slider--home">
+    <div class="o-slider__slide" data-ng-repeat="slide in home.slides" style="background-image:url({{ slide }});"></div>
+  </div>
+
+  <div class="o-home__content o-container">
     <!-- Shortcuts -->
     <div class="o-shortcuts">
       <div class="o-shortcuts__inner">

@@ -37,8 +37,7 @@
   LoginService.$inject = ['ApiService', 'SessionService', 'API_ENDPOINTS'];
 
 
-  angular
-    .module('Csi.login')
+  angular.module('Csi.login')
     .factory('LoginService', LoginService);
 
 }());

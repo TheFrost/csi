@@ -4,7 +4,7 @@
   var AuthService = function ($rootScope, $state, $location, AccessToken, moment, SessionService, ApiService, API_ENDPOINTS) {
 
     var logout = function () {
-      ApiService.send(API_ENDPOINTS.logout, 'POST')
+      return ApiService.send(API_ENDPOINTS.logout, 'POST')
         .then(function () {
           SessionService.destroy();
           AccessToken.key = null;

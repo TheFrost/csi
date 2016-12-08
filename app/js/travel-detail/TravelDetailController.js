@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var TravelDetailCtrl = function ($stateParams, $state, ApiService, API_ENDPOINTS) {
+  var TravelDetailCtrl = function ($scope, $stateParams, $state, TravelDetailService) {
 
     // if id does'n exist in URL stop controller right here and go home
     if (!$stateParams.travelId) {
@@ -13,38 +13,24 @@
 
     travelDetail.vehicles = [];
 
-    var records = {
-      'Trips': [
-        {
-          'IdViaje': $stateParams.travelId
-        }
-      ]
-    };
-
-    ApiService.send(API_ENDPOINTS.getTravelDetail, 'POST', records)
-      .then(
-        function (res) {
-
-          travelDetail.vehicles = res.data.Records.Vehicles;
-          console.log(travelDetail.vehicles);
-
-        },
-        function () {
-          console.log('problem service');
-        }
-      );
-
-
-    // Methods
-    var goToDetail = function (vin) {
+    // Public Methods
+    travelDetail.goToDetail = function (vin) {
       $state.go('vehicleDetail', { vehicleVin: vin });
     };
 
-    // Exposed methods
-    travelDetail.goToDetail = goToDetail;
+    // Fetch
+    $scope.$emit('loading');
+    TravelDetailService.getData($stateParams.travelId)
+      .then(
+        function (data) {
+          travelDetail.vehicles = data.vehicles;
+
+          $scope.$emit('loaded');
+        }
+      );
 
   };
-  TravelDetailCtrl.$inject = ['$stateParams', '$state', 'ApiService', 'API_ENDPOINTS'];
+  TravelDetailCtrl.$inject = ['$scope', '$stateParams', '$state', 'TravelDetailService'];
 
   angular.module('Csi.travelDetail')
     .controller('TravelDetailCtrl', TravelDetailCtrl);

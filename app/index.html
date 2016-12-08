@@ -17,6 +17,7 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="lib/flickity/dist/flickity.min.css" />
   <!-- endbower -->
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/main.css">
@@ -40,6 +41,10 @@
   </div>
   <!-- // end Splash -->
 
+  <!-- Loader -->
+  <div ng-include="'partials/loader/loader.tpl.html'"></div>
+  <!-- // end Loader -->
+
   <!-- Svg Icons -->
   <div ng-include="'partials/icons/icons.tpl.html'"></div>
   <!-- // end Svg Icons -->
@@ -53,7 +58,7 @@
   <!-- // end Header -->
 
   <!-- Main container -->
-  <main class="o-main u-cf a-fade" ui-view></main>
+  <main class="o-main u-cf" ui-view></main>
   <!-- // end Main container -->
 
   <!-- Footer -->
@@ -83,13 +88,24 @@
   <script src="lib/angular-material/angular-material.js"></script>
   <script src="lib/angular-ui-utils/ui-utils.js"></script>
   <script src="lib/angular-ui-map/ui-map.js"></script>
+  <script src="lib/desandro-matches-selector/matches-selector.js"></script>
+  <script src="lib/ev-emitter/ev-emitter.js"></script>
+  <script src="lib/fizzy-ui-utils/utils.js"></script>
+  <script src="lib/get-size/get-size.js"></script>
+  <script src="lib/unipointer/unipointer.js"></script>
+  <script src="lib/tap-listener/tap-listener.js"></script>
+  <script src="lib/unidragger/unidragger.js"></script>
+  <script src="lib/flickity/dist/flickity.pkgd.js"></script>
+  <script src="lib/angular-flickity/dist/angular-flickity.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js js/app.min.js -->
   <!-- inject:js -->
   <script src="/js/vehicle-detail/VehicleDetail.js"></script>
+  <script src="/js/vehicle-detail/VehicleDetailService.js"></script>
   <script src="/js/vehicle-detail/VehicleDetailController.js"></script>
   <script src="/js/travel-detail/TravelDetail.js"></script>
+  <script src="/js/travel-detail/TravelDetailService.js"></script>
   <script src="/js/travel-detail/TravelDetailController.js"></script>
   <script src="/js/map/Map.js"></script>
   <script src="/js/map/MapController.js"></script>
@@ -98,10 +114,12 @@
   <script src="/js/login/LoginService.js"></script>
   <script src="/js/login/LoginController.js"></script>
   <script src="/js/home/Home.js"></script>
+  <script src="/js/home/HomeService.js"></script>
   <script src="/js/home/HomeController.js"></script>
   <script src="/js/common/Common.js"></script>
   <script src="/js/common/TravelListDirective.js"></script>
   <script src="/js/common/MenuDirective.js"></script>
+  <script src="/js/common/MainService.js"></script>
   <script src="/js/common/MainController.js"></script>
   <script src="/js/common/AuthService.js"></script>
   <script src="/js/common/ApiService.js"></script>

@@ -13,7 +13,7 @@
 
         $scope.goToDetail = function (id) {
           $state.go('travelDetail', { travelId: id });
-        }
+        };
 
       }]
     };

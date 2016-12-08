@@ -11,6 +11,7 @@
       getTravelList: '/TravelList',
       getTravelDetail: '/TravelDetail',
       getVehicleDetail: '/VehicleDetail',
+      getSlides: '/HomeImage'
     });
 
 }());

@@ -1,6 +1,6 @@
 <div>
   <!-- Menu trigger -->
-  <a href="" class="o-menu__trigger" id="menu-trigger" ng-click="toggleMenu()" ng-class="{'js-active':triggerActive}">
+  <a href="" class="o-menu__trigger" ng-click="toggleMenu()" ng-class="{'js-active':activeMenu}">
     <span class="o-menu__trigger-inner">
       <span></span>
       <span></span>
@@ -9,7 +9,7 @@
   </a>
   <!-- // end Menu trigger -->
 
-  <md-sidenav md-component-id="mainMenu" class="o-menu" md-swipe-left="toggleMenu()">
+  <md-sidenav md-component-id="mainMenu" class="o-menu" md-swipe-left="toggleMenu()" md-is-open="activeMenu" md-disable-backdrop="true">
     <!-- Menu logo desktop -->
     <figure class="o-menu__logo">
       <img src="img/lg-csi-menu.png" class="u-imgresponsive" alt="">
@@ -86,6 +86,6 @@
   </md-sidenav>
 
   <!-- menu components -->
-  <div class="o-menu__overlay" id="menu-overlay" ng-click="toggleMenu()" ng-class="{'js-active':overlayActive}"></div>
+  <div class="o-menu__overlay a-fade" ng-click="toggleMenu()" ng-show="activeMenu"></div>
   <!-- // end menu components -->
 </div>

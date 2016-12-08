@@ -38,8 +38,13 @@ gulp.task('uncss', function () {
 gulp.task('compress', function () {
   gulp.src('./app/index.html')
     .pipe(useref())
-    .pipe(gulpif('*.js', uglify()))
-    // .pipe(gulpif('*.js', uglify({mangle: false})))
+    // .pipe(gulpif('*.js', uglify({
+    //   preserveComments: 'license',
+    //   compress: false
+    // })))
+    .pipe(gulpif('*.js', uglify({
+      mangle: false
+    })))
     .pipe(gulpif('*.css', minifyCss()))
     .pipe(gulp.dest('./dist'));
 });
@@ -50,9 +55,16 @@ gulp.task('copy', function () {
   gulp.src('./app/index.html')
     .pipe(useref())
     .pipe(gulp.dest('./dist'));
+
   gulp.src('./app/lib/font-awesome/fonts/**')
     .pipe(gulp.dest('./dist/fonts'));
-})
+
+  gulp.src('./app/img/**')
+    .pipe(gulp.dest('./dist/img'));
+
+  gulp.src('./app/partials/**')
+    .pipe(gulp.dest('./dist/partials'));
+});
 
 
 // Crea un bundle de todos los templates que se usan en Angular

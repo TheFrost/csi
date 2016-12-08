@@ -9,51 +9,27 @@
       scope: {
         user: '='
       },
-      link: function ($scope) {
+      controller: ['$scope', function ($scope) {
 
-        // selectors
-        var menuOverlay = angular.element(document.querySelector('#menu-overlay'));
+        $scope.activeMenu = false;
 
-        // methods
-        var toggleOverlay = function () {
-
-          if (menuOverlay.hasClass('js-active')) {
-            menuOverlay.css('opacity', 0);
-            $timeout(function () {
-              menuOverlay.css('display', 'none');
-            }, 200);
-
-            $scope.overlayActive = false;
-          } else {
-            menuOverlay.css('display', 'block');
-            $timeout(function () {
-              menuOverlay.css('opacity', 1);
-            }, 50);
-
-            $scope.overlayActive = true;
-          }
-
-        };
-
-        var toggleMenu = function () {
-          $scope.triggerActive = !$scope.triggerActive;
+        $scope.toggleMenu = function () {
           $mdSidenav('mainMenu').toggle();
-
-          toggleOverlay();
         };
 
-        var logout = function () {
-          AuthService.logout();
+        $scope.logout = function () {
+          $scope.$emit('loading');
+          AuthService.logout()
+            .then(
+              function () {
+                $timeout(function () {
+                  $scope.$emit('loaded');
+                }, 100);
+              }
+            );
         };
 
-        // scope methods
-        $scope.toggleMenu = toggleMenu;
-        $scope.logout = logout;
-        $scope.triggerActive = false;
-        $scope.overlayActive = false;
-
-
-      }
+      }]
     };
   };
   MenuDirective.$inject = ['$timeout', '$mdSidenav', 'AuthService'];

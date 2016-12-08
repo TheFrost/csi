@@ -1,30 +1,29 @@
 (function() {
   'use strict';
 
-  var MainCtrl = function ($scope, $timeout, AUTH_EVENTS, API_ENDPOINTS, ApiService, AccessToken) {
+  var MainCtrl = function ($scope, $timeout, AUTH_EVENTS, AccessToken, MainService) {
 
     var main = this;
 
     main.user = {
-      name : '',
-      email : '',
-      avatar : ''
+      avatar: 'img/profile-generic.jpg'
     };
+    main.loading = false;
 
     // Privat methods
     var _getUser = function () {
-      ApiService.send(API_ENDPOINTS.getUser, 'POST')
-        .then(
-          function (res) {
-            var user = res.data.Records.User;
 
+      MainService.getUser()
+        .then(
+          function (data) {
             main.user = {
-              name : user.Name,
-              email : user.Mail,
-              avatar : user.Avatar
+              name: data.name,
+              email: data.email,
+              avatar: data.avatar
             };
           }
         );
+
     };
 
     // Public methods
@@ -41,8 +40,17 @@
       _getUser();
     });
 
+    $scope.$on('loading', function () {
+      main.loading = true;
+    });
+
+    $scope.$on('loaded', function () {
+      main.loading = false;
+    });
+
   };
-  MainCtrl.$inject = ['$scope', '$timeout', 'AUTH_EVENTS', 'API_ENDPOINTS', 'ApiService', 'AccessToken'];
+  MainCtrl.$inject = ['$scope', '$timeout', 'AUTH_EVENTS', 'AccessToken', 'MainService'];
+
 
   angular.module('Csi.common')
     .controller('MainCtrl', MainCtrl);

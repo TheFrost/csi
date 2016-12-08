@@ -97,6 +97,7 @@
     'ngMessages',
     'angularMoment',
     'angular-storage',
+    'bc.Flickity',
     'Csi.common',
     'Csi.login',
     'Csi.home',
