@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
   <link rel="stylesheet" href="lib/flickity/dist/flickity.min.css" />
+  <link rel="stylesheet" href="lib/angular-ui-router-anim-in-out/css/anim-in-out.css" />
   <!-- endbower -->
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/main.css">
@@ -58,7 +59,7 @@
   <!-- // end Header -->
 
   <!-- Main container -->
-  <main class="o-main u-cf" ui-view></main>
+  <main ui-view class="o-main u-cf anim-in-out anim-slide-below-fade" data-anim-sync="false"></main>
   <!-- // end Main container -->
 
   <!-- Footer -->
@@ -97,6 +98,7 @@
   <script src="lib/unidragger/unidragger.js"></script>
   <script src="lib/flickity/dist/flickity.pkgd.js"></script>
   <script src="lib/angular-flickity/dist/angular-flickity.js"></script>
+  <script src="lib/angular-ui-router-anim-in-out/anim-in-out.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js js/app.min.js -->
@@ -107,12 +109,12 @@
   <script src="/js/travel-detail/TravelDetail.js"></script>
   <script src="/js/travel-detail/TravelDetailService.js"></script>
   <script src="/js/travel-detail/TravelDetailController.js"></script>
-  <script src="/js/map/Map.js"></script>
-  <script src="/js/map/MapController.js"></script>
   <script src="/js/login/Login.js"></script>
   <script src="/js/login/SessionService.js"></script>
   <script src="/js/login/LoginService.js"></script>
   <script src="/js/login/LoginController.js"></script>
+  <script src="/js/map/Map.js"></script>
+  <script src="/js/map/MapController.js"></script>
   <script src="/js/home/Home.js"></script>
   <script src="/js/home/HomeService.js"></script>
   <script src="/js/home/HomeController.js"></script>

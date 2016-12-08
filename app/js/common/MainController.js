@@ -41,7 +41,9 @@
     });
 
     $scope.$on('loading', function () {
-      main.loading = true;
+      $timeout(function () {
+        main.loading = true;
+      }, 500)
     });
 
     $scope.$on('loaded', function () {

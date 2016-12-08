@@ -29,31 +29,11 @@
   }
 }
 
-.a-translate {
-  position relative
-  &.ng-animate {
-    transition 0.6s linear all
-  }
 
-  &.ng-enter {
-    z-index 8888
-    transform translate3d(-100%, 0, 0)
-    opacity 0
-  }
-
-  &.ng-enter.ng-enter-active {
-    transform translate3d(0, 0, 0)
-    opacity 1
-  }
-
-  &.ng-leave {
-    z-index 9999
-    transform translate3d(100%, 0, 0)
-    opacity 1
-  }
-
-  &.ng-leave.ng-leave-active {
-    transform translate3d(0, 0, 0)
-    opacity 0
-  }
+[ui-view] {
+  position absolute
+  top 0
+  bottom 0
+  left 0
+  right 0
 }

@@ -93,6 +93,7 @@
   angular.module('Csi', [
     'ngMaterial',
     'ngAnimate',
+    'anim-in-out',
     'ui.router',
     'ngMessages',
     'angularMoment',

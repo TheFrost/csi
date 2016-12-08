@@ -71,7 +71,9 @@
 
     // Bind events
     $scope.$on('$destroy', function () {
-      FlickityService.destroy(slideInstance);
+      $timeout(function () {
+        FlickityService.destroy(slideInstance);
+      }, 1000);
     });
 
   }
