@@ -42,7 +42,7 @@
 .a-fade.ng-show {
   opacity: 1;
 }
-[ui-view] {
+[ui-view].ng-animate {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -880,11 +880,20 @@ md-content {
 .o-travels__status {
   font-weight: 500;
 }
-.o-travels__status--entregado {
-  color: #70a83b;
+.o-travels__status--1 {
+  color: #e2a900;
 }
-.o-travels__status--porllegar {
-  color: #db9600;
+.o-travels__status--2 {
+  color: #4d73dd;
+}
+.o-travels__status--3 {
+  color: #4d73dd;
+}
+.o-travels__status--4 {
+  color: #e2a900;
+}
+.o-travels__status--5 {
+  color: #70a83b;
 }
 .o-travels__feedback {
   vertical-align: middle !important;
@@ -945,6 +954,10 @@ md-content {
 .o-travels__seemore:hover {
   text-decoration: underline;
 }
+.o-travels__message {
+  text-align: center;
+  text-transform: uppercase;
+}
 .o-travels__route {
   position: relative;
   padding: 2em 0;
@@ -980,12 +993,12 @@ md-content {
   background-color: #e7e7e7;
 }
 .o-travels__steps-shape.js-done .o-travels__steps-icon {
-  border-color: #70a83b;
-  background-color: #70a83b;
+  border-color: c_entregado;
+  background-color: c_entregado;
 }
 .o-travels__steps-shape.js-progress .o-travels__steps-icon {
-  border-color: #70a83b;
-  color: #70a83b;
+  border-color: c_entregado;
+  color: c_entregado;
 }
 .o-travels__steps-shape.js-pending .o-travels__steps-icon {
   border-color: #bf4657;
@@ -1233,6 +1246,15 @@ md-content {
   }
 }
 .o-slider__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.o-slider__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -1250,12 +1272,13 @@ md-content {
   height: 100%;
   background-color: #f6f6f6;
 }
-.o-loader__spinner {
+.o-loader__content {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -25px;
   margin-left: -25px;
+  text-align: center;
 }
 /*Pages*/
 .o-home {

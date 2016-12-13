@@ -1,7 +1,7 @@
 <div>
   <table class="o-table o-table--bordered o-travels__table o-travels__table--desktop">
     <tbody>
-      <tr ng-repeat="travel in travels" ng-click="goToDetail(travel.IdViaje)" class="a-fade">
+      <tr ng-repeat="travel in travels.list" ng-click="travels.goToDetail(travel.IdViaje)" class="a-fade">
         <td>
           Viaje:
           <br>
@@ -9,7 +9,7 @@
         </td>
         <td>
           Estatus:
-          <span class="o-travels__status o-travels__status--porllegar" ng-bind="travel.Status"></span>
+          <span class="o-travels__status o-travels__status--{{ travel.StatusId }}" ng-bind="travel.Status"></span>
           <br>
           Origen:
           <span ng-bind="travel.Origin"></span>
@@ -28,7 +28,7 @@
           <span ng-bind="travel.Claims"></span>
         </td>
         <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action">
+          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.StatusId)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
               <span class="o-travels__feedback-cal" ng-bind="travel.Score"></span>
             </i>
@@ -41,7 +41,7 @@
   <!-- Table mobile -->
   <table class="o-table o-table--bordered o-travels__table o-travels__table--mobile">
     <tbody>
-      <tr ng-repeat="travel in travels" ng-click="goToDetail(travel.IdViaje)" class="a-fade">
+      <tr ng-repeat="travel in travels.list" ng-click="travels.goToDetail(travel.IdViaje)" class="a-fade">
         <td>
           Viaje:
           <br>
@@ -51,7 +51,7 @@
           <span ng-bind="travel.Origin"></span>
           <br>
           Estatus:
-          <span class="o-travels__status o-travels__status--porllegar" ng-bind="travel.Status"></span>
+          <span class="o-travels__status o-travels__status--{{ travel.StatusId }}" ng-bind="travel.Status"></span>
         </td>
         <td>
           ETA:
@@ -62,7 +62,7 @@
           <span ng-bind="travel.Destination"></span>
         </td>
         <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action">
+          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.StatusId)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
               <span class="o-travels__feedback-cal" ng-bind="travel.Score"></span>
             </i>
@@ -73,4 +73,9 @@
     </tbody>
   </table>
   <!-- // end Table mobile -->
+
+  <!-- generic Message -->
+  <h1 class="o-travels__message" ng-show="travels.noTravels">No hay viajes para esta sección</h1>
+  <!-- // end generic Message -->
+
 </div>

@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
   <link rel="stylesheet" href="lib/flickity/dist/flickity.min.css" />
   <link rel="stylesheet" href="lib/angular-ui-router-anim-in-out/css/anim-in-out.css" />
+  <link rel="stylesheet" href="lib/angular-carousel/dist/angular-carousel.css" />
   <!-- endbower -->
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/main.css">
@@ -51,7 +52,7 @@
   <!-- // end Svg Icons -->
 
   <!-- Menu -->
-  <div menu-directive user="main.user"></div>
+  <div csi-menu user="main.user"></div>
   <!-- // end Menu -->
 
   <!-- Header -->
@@ -97,35 +98,44 @@
   <script src="lib/tap-listener/tap-listener.js"></script>
   <script src="lib/unidragger/unidragger.js"></script>
   <script src="lib/flickity/dist/flickity.pkgd.js"></script>
-  <script src="lib/angular-flickity/dist/angular-flickity.js"></script>
   <script src="lib/angular-ui-router-anim-in-out/anim-in-out.js"></script>
+  <script src="lib/angular-touch/angular-touch.js"></script>
+  <script src="lib/angular-carousel/dist/angular-carousel.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js js/app.min.js -->
   <!-- inject:js -->
-  <script src="/js/vehicle-detail/VehicleDetail.js"></script>
-  <script src="/js/vehicle-detail/VehicleDetailService.js"></script>
-  <script src="/js/vehicle-detail/VehicleDetailController.js"></script>
-  <script src="/js/travel-detail/TravelDetail.js"></script>
-  <script src="/js/travel-detail/TravelDetailService.js"></script>
-  <script src="/js/travel-detail/TravelDetailController.js"></script>
-  <script src="/js/login/Login.js"></script>
-  <script src="/js/login/SessionService.js"></script>
-  <script src="/js/login/LoginService.js"></script>
-  <script src="/js/login/LoginController.js"></script>
-  <script src="/js/map/Map.js"></script>
-  <script src="/js/map/MapController.js"></script>
-  <script src="/js/home/Home.js"></script>
-  <script src="/js/home/HomeService.js"></script>
-  <script src="/js/home/HomeController.js"></script>
-  <script src="/js/common/Common.js"></script>
-  <script src="/js/common/TravelListDirective.js"></script>
-  <script src="/js/common/MenuDirective.js"></script>
-  <script src="/js/common/MainService.js"></script>
-  <script src="/js/common/MainController.js"></script>
-  <script src="/js/common/AuthService.js"></script>
-  <script src="/js/common/ApiService.js"></script>
+  <script src="/js/vehicle-detail/vehicle-detail.js"></script>
+  <script src="/js/vehicle-detail/vehicle-detail.factory.js"></script>
+  <script src="/js/vehicle-detail/vehicle-detail.controller.js"></script>
+  <script src="/js/travel-detail/travel-detail.js"></script>
+  <script src="/js/travel-detail/travel-detail.factory.js"></script>
+  <script src="/js/travel-detail/travel-detail.controller.js"></script>
+  <script src="/js/map/map.js"></script>
+  <script src="/js/map/map.controller.js"></script>
+  <script src="/js/main/main.js"></script>
+  <script src="/js/main/main.factory.js"></script>
+  <script src="/js/main/main.controller.js"></script>
+  <script src="/js/login/login.js"></script>
+  <script src="/js/login/session.factory.js"></script>
+  <script src="/js/login/login.factory.js"></script>
+  <script src="/js/login/login.controller.js"></script>
+  <script src="/js/login/login.constants.js"></script>
+  <script src="/js/common/common.js"></script>
+  <script src="/js/layout/menu.directive.js"></script>
+  <script src="/js/home/home.js"></script>
+  <script src="/js/home/home.factory.js"></script>
+  <script src="/js/home/home.controller.js"></script>
+  <script src="/js/components/travels.directive.js"></script>
+  <script src="/js/common/common.values.js"></script>
+  <script src="/js/common/common.constants.js"></script>
+  <script src="/js/common/auth.factory.js"></script>
+  <script src="/js/common/api.factory.js"></script>
+  <script src="/js/templates.js"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/app.run.js"></script>
+  <script src="/js/app.route.js"></script>
+  <script src="/js/app.config.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

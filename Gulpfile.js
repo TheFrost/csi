@@ -1,4 +1,5 @@
 var gulp                  = require('gulp'),
+    lazypipe              = require('lazypipe'),
     // Recursos para servidor web
     connect               = require('gulp-connect'),
     historyApiFallback    = require('connect-history-api-fallback'),
@@ -9,15 +10,16 @@ var gulp                  = require('gulp'),
     // Recursos para javascript
     jshint                = require('gulp-jshint'),
     stylish               = require('jshint-stylish'),
+    ngTemplate            = require('gulp-ng-template'),
     // Recursos para inyectar librerias
     inject                = require('gulp-inject'),
     wiredep               = require('wiredep').stream,
     angularFilesort       = require('gulp-angular-filesort'),
     // Recursos para producción
-    templateCache         = require('gulp-angular-templatecache')
-    gulpif                = require('gulp-if')
-    minifyCss             = require('gulp-minify-css')
-    useref                = require('gulp-useref')
+    ngAnnotate            = require('gulp-ng-annotate'),
+    gulpif                = require('gulp-if'),
+    minifyCss             = require('gulp-minify-css'),
+    useref                = require('gulp-useref'),
     uglify                = require('gulp-uglify'),
     uncss                 = require('gulp-uncss');
 
@@ -27,7 +29,8 @@ gulp.task('uncss', function () {
   gulp.src('./dist/css/style.min.css')
     .pipe(uncss({
       html: [
-        './app/**/*.html'
+        './app/index.html',
+        './app/partials/**/*.html'
       ]
     }))
     .pipe(gulp.dest('./dist/css'));
@@ -35,16 +38,14 @@ gulp.task('uncss', function () {
 
 
 // Crea un bundle de css y javascript
+var jsTasks = lazypipe()
+  .pipe(ngAnnotate)
+  .pipe(uglify);
+
 gulp.task('compress', function () {
   gulp.src('./app/index.html')
     .pipe(useref())
-    // .pipe(gulpif('*.js', uglify({
-    //   preserveComments: 'license',
-    //   compress: false
-    // })))
-    .pipe(gulpif('*.js', uglify({
-      mangle: false
-    })))
+    .pipe(gulpif('*.js', jsTasks()))
     .pipe(gulpif('*.css', minifyCss()))
     .pipe(gulp.dest('./dist'));
 });
@@ -52,30 +53,33 @@ gulp.task('compress', function () {
 
 // Pasa index.html con los bundles inyectados
 gulp.task('copy', function () {
-  gulp.src('./app/index.html')
-    .pipe(useref())
-    .pipe(gulp.dest('./dist'));
-
   gulp.src('./app/lib/font-awesome/fonts/**')
     .pipe(gulp.dest('./dist/fonts'));
 
   gulp.src('./app/img/**')
     .pipe(gulp.dest('./dist/img'));
-
-  gulp.src('./app/partials/**')
-    .pipe(gulp.dest('./dist/partials'));
 });
 
 
-// Crea un bundle de todos los templates que se usan en Angular
+// Crea un bundle de todos los templates que se usan en Angular 
 gulp.task('templates', function () {
-  gulp.src('./app/partials/**/*.tpl.html')
-    .pipe(templateCache({
-      root: 'partials/',
-      module: 'blog.templates',
-      standalone: true
+  gulp.src('./app/partials/**/*.html')
+    .pipe(ngTemplate({
+      moduleName: 'Csi.templates',
+      standalone: true,
+      useStrict: true,
+      wrap: true,
+      filePath: 'templates.js'
     }))
-    .pipe(gulp.dest('./app/scripts'));
+    .pipe(gulp.dest('./app/js'));
+});
+
+
+// Ejecuta la inyección de dependencias de Angular
+gulp.task('annotate', function () {
+  gulp.src('./app/js/**/*.js')
+    .pipe(ngAnnotate())
+    .pipe(gulp.dest('./app/js/'));
 });
 
 
@@ -86,13 +90,13 @@ gulp.task('inject', function () {
     .pipe(inject(
       gulp.src(['./app/js/**/*.js']).pipe(angularFilesort()),
       {
-        ignorePath: '/app'
+        ignorePath: '/app/'
       }
     ))
     .pipe(inject(
       gulp.src(['./app/css/**/*.css']),
       {
-        ignorePath: '/app'
+        ignorePath: '/app/'
       }
     ))
     .pipe(gulp.dest('./app'))
@@ -168,7 +172,7 @@ gulp.task('html', function () {
 // Vigila cambios que se produzcan en el código
 // y lanza las tareas relacionadas
 gulp.task('watch', function () {
-  gulp.watch(['./app/**/*.html'], ['html']);
+  gulp.watch(['./app/**/*.html'], ['html', 'templates']);
   gulp.watch(['./app/css/**/*.styl'], ['css', 'inject']);
   gulp.watch(['./app/js/**/*.js', 'Gulpfile.js'], ['jshint', 'inject']);
   gulp.watch(['./bower.json'], ['wiredep']);
@@ -176,8 +180,7 @@ gulp.task('watch', function () {
 
 
 // Tarea que ejecuta procesos para producción
-gulp.task('build', ['compress', 'copy', 'uncss']);
-// gulp.task('build', ['templates', 'compress', 'copy', 'uncss']);
+gulp.task('build', ['templates', 'compress', 'copy', 'uncss']);
 
 
-gulp.task('default', ['server', 'inject', 'wiredep', 'watch']);
+gulp.task('default', ['server', 'templates', 'inject', 'wiredep', 'watch']);

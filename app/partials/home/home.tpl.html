@@ -1,9 +1,21 @@
 <!-- Home view -->
 <section class="o-home">
 
-  <div id="homeSlider" class="o-slider o-slider--home">
+  <!-- <div id="homeSlider" class="o-slider o-slider--home">
     <div class="o-slider__slide" data-ng-repeat="slide in home.slides" style="background-image:url({{ slide }});"></div>
-  </div>
+  </div> -->
+
+  <ul class="o-slider o-slider--home u-listnostyle"
+    rn-carousel
+    rn-swipe-disabled
+    rn-carousel-auto-slide="5"
+    rn-carousel-transition="slide"
+    rn-carousel-duration="1000"
+    rn-carousel-easing="easeInOutQuad">
+    <li class="o-slider__slide" ng-repeat="slide in home.slides">
+      <span class="o-slider__img" style="background-image:url({{ slide }});"></span>
+    </li>
+  </ul>
 
   <div class="o-home__content o-container">
     <!-- Shortcuts -->
@@ -74,11 +86,11 @@
     <!-- Home Vigilance -->
     <div class="o-travels">
       <header class="o-head o-travels__head">
-        <h1 class="o-head__title">En vigilancia</h1>
+        <h1 class="o-head__title">En vigilancias</h1>
       </header>
 
       <!-- Travel list directive -->
-      <div travel-list-directive travels="home.travels"></div>
+      <div csi-travels list="home.travels"></div>
       <!-- // end Travel list directive -->
 
       <footer class="o-travels__footer" ng-show="home.hasTravels">

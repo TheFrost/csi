@@ -10,7 +10,9 @@
   };
 
   angular
-    .module('Csi.login', [])
+    .module('Csi.login', [
+      'Csi.common'
+    ])
     .constant('AUTH_EVENTS', AUTH_EVENTS);
 
 }());

@@ -1,6 +1,8 @@
 (function() {
   'use strict';
 
-  angular.module('Csi.home', []);
+  angular.module('Csi.home', [
+    'Csi.common'
+  ]);
 
 }());
