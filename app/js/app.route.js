@@ -15,20 +15,20 @@
       .state('login', {
         url: '/iniciar-sesion',
         templateUrl: 'partials/login/login.tpl.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
+        controller: 'LoginCtrl as login'
       })
       .state('home', {
         url: '/',
         templateUrl: 'partials/home/home.tpl.html',
-        controller: 'HomeCtrl',
-        controllerAs: 'home'
+        controller: 'HomeCtrl as home',
+        resolve: {
+          homeData: homeResolve
+        }
       })
       .state('map', {
         url: '/mapa-de-tracking',
         templateUrl: 'partials/map/map.tpl.html',
-        controller: 'MapCtrl',
-        controllerAs: 'map'
+        controller: 'MapCtrl as map'
       })
       .state('travelList', {
         url: '/listado-de-viajes',
@@ -37,14 +37,12 @@
       .state('travelDetail', {
         url: '/detalle-de-viaje/:travelId',
         templateUrl: 'partials/hardcode/traveldetail.html',
-        controller: 'TravelDetailCtrl',
-        controllerAs: 'travelDetail'
+        controller: 'TravelDetailCtrl as travelDetail'
       })
       .state('vehicleDetail', {
         url: '/detalle-de-vehiculo/:vehicleVin',
         templateUrl: 'partials/hardcode/cardetail.html',
-        controller: 'VehicleDetailCtrl',
-        controllerAs: 'vehicleDetail'
+        controller: 'VehicleDetailCtrl as vehicleDetail'
       })
       .state('config', {
         url: '/configuracion',
@@ -53,6 +51,15 @@
 
     $urlRouterProvider.otherwise('/');
 
+  }
+
+  ////////////////////////////////////////////////////////////// 
+
+  /**
+  * @ngInject
+  */
+  function homeResolve(homeFactory) {
+    return homeFactory.getData();
   }
 
 }());

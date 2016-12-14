@@ -69,7 +69,8 @@ gulp.task('templates', function () {
       standalone: true,
       useStrict: true,
       wrap: true,
-      filePath: 'templates.js'
+      filePath: 'templates.js',
+      prefix: 'partials/'
     }))
     .pipe(gulp.dest('./app/js'));
 });

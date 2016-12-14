@@ -1267,7 +1267,7 @@ md-content {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 179;
+  z-index: 9999;
   width: 100%;
   height: 100%;
   background-color: #f6f6f6;
@@ -1276,9 +1276,26 @@ md-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -25px;
-  margin-left: -25px;
+  width: 126px;
+  height: 126px;
+  margin-top: -63px;
+  margin-left: -63px;
   text-align: center;
+}
+.o-loader__spinner {
+  display: inline-block;
+}
+.o-loader__copy {
+  display: block;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4d73dd;
+}
+.o-loader__copy--error {
+  margin-top: 0;
+  font-size: 0.8em;
+  color: #a9443a;
 }
 /*Pages*/
 .o-home {

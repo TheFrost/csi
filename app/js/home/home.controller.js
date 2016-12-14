@@ -4,12 +4,12 @@
 
   angular.module('Csi.home')
     .controller('HomeCtrl', HomeCtrl);
-    
+
 
   /**
   * @ngInject
   */
-  function HomeCtrl(homeFactory, $timeout, $scope) {
+  function HomeCtrl(homeData) { // data is from Home resolve in router 
 
     var home = this;
 
@@ -18,9 +18,10 @@
     home.hasTravels = false;
     home.slides = [];
 
+    activate();
+
     ///////////////////////////////////
 
-    // Private Methods
     function _renderShortcuts(shortcuts) {
       angular.forEach(shortcuts, function (value) {
         home.shortcuts[Object.keys(value)[0]] = value[Object.keys(value)[0]] == 'true' ? true : false;
@@ -28,72 +29,6 @@
     }
 
     function _renderSurvillanceTravels(travels) {
-
-      /*Hardcode*/
-      /*travels = [
-        {
-          Claims: 0,
-          Destination:'RIVERA',
-          ETA:'2016-09-07T18:28:00',
-          IdViaje:'160907022',
-          Origin:'CSI DISTRIBUCION',
-          Score: 0,
-          Status:'ASIGNADO',
-          StatusId: 1,
-          Survillance: 0,
-          Vins:'1'
-        },
-        {
-          Claims: 0,
-          Destination:'RIVERA',
-          ETA:'2016-09-07T18:28:00',
-          IdViaje:'160907022',
-          Origin:'CSI DISTRIBUCION',
-          Score: 0,
-          Status:'CARGANDO',
-          StatusId: 2,
-          Survillance: 0,
-          Vins:'1'
-        },
-        {
-          Claims: 0,
-          Destination:'RIVERA',
-          ETA:'2016-09-07T18:28:00',
-          IdViaje:'160907022',
-          Origin:'CSI DISTRIBUCION',
-          Score: 0,
-          Status:'EN TRANSITO',
-          StatusId: 3,
-          Survillance: 0,
-          Vins:'1'
-        },
-        {
-          Claims: 0,
-          Destination:'RIVERA',
-          ETA:'2016-09-07T18:28:00',
-          IdViaje:'160907022',
-          Origin:'CSI DISTRIBUCION',
-          Score: 0,
-          Status:'POR LLEGAR',
-          StatusId: 4,
-          Survillance: 0,
-          Vins:'1'
-        },
-        {
-          Claims: 0,
-          Destination:'RIVERA',
-          ETA:'2016-09-07T18:28:00',
-          IdViaje:'160907022',
-          Origin:'CSI DISTRIBUCION',
-          Score: 0,
-          Status:'ENTREGADO',
-          StatusId: 5,
-          Survillance: 0,
-          Vins:'1'
-        },
-      ];*/
-      /*end hardcode*/
-
       if (travels.length) {
         home.travels = travels;
         home.hasTravels = true;
@@ -109,18 +44,11 @@
       ];
     }
 
-    // Fetch
-    $scope.$emit('loading');
-    homeFactory.getData()
-      .then(
-        function (data) {
-          _renderShortcuts(data.shortcuts);
-          _renderSurvillanceTravels(data.survillance);
-          _renderHomeSlider(data.slides);
-
-          $scope.$emit('loaded');
-        }
-      );
+    function activate() {
+      _renderShortcuts(homeData.shortcuts);
+      _renderSurvillanceTravels(homeData.survillance);
+      _renderHomeSlider(homeData.slides);
+    }
 
   }
 
