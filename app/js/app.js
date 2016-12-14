@@ -12,6 +12,7 @@
     'Csi.common',
     'Csi.login',
     'Csi.home',
+    'Csi.travelList',
     'Csi.travelDetail',
     'Csi.vehicleDetail',
     'Csi.map',

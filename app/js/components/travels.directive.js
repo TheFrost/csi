@@ -39,8 +39,8 @@
       $state.go('travelDetail', { travelId: id });
     }
 
-    function isDelivered(statusId) {
-      return statusId === 5;
+    function isDelivered(status) {
+      return status === 'ENTREGADO';
     }
 
     function isEvaluated(score) {

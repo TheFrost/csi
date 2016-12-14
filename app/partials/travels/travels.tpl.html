@@ -28,7 +28,7 @@
           <span ng-bind="travel.Claims"></span>
         </td>
         <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.StatusId)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
+          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.Status)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
               <span class="o-travels__feedback-cal" ng-bind="travel.Score"></span>
             </i>
@@ -62,7 +62,7 @@
           <span ng-bind="travel.Destination"></span>
         </td>
         <td class="o-travels__feedback u-align-right">
-          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.StatusId)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
+          <a href="#" class="o-travels__feedback-action" ng-show="travels.isDelivered(travel.Status)" ng-class="{'js-done': travels.isEvaluated(travel.Score)}">
             <i class="fa fa-star o-travels__feedback-icon" aria-hidden="true">
               <span class="o-travels__feedback-cal" ng-bind="travel.Score"></span>
             </i>

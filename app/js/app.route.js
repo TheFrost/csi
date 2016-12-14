@@ -32,7 +32,11 @@
       })
       .state('travelList', {
         url: '/listado-de-viajes',
-        templateUrl: 'partials/hardcode/travellist.html'
+        templateUrl: 'partials/hardcode/travellist.html',
+        controller: 'TravelListCtrl as travelList',
+        resolve: {
+          travelListData: travelListResolve
+        }
       })
       .state('travelDetail', {
         url: '/detalle-de-viaje/:travelId',
@@ -60,6 +64,13 @@
   */
   function homeResolve(homeFactory) {
     return homeFactory.getData();
+  }
+
+  /**
+  * @ngInject
+  */
+  function travelListResolve(travelListFactory) {
+    return travelListFactory.getAll();
   }
 
 }());
