@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- External resources -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <!-- External scripts -->
+  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=onGoogleReady"></script> -->
+
+</head>
+<body ng-controller="MainCtrl as main" ng-init="main.init()">
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Splash -->
+  <div class="o-splash" ng-cloak>
+    <figure class="o-splash__logo">
+      <img src="img/lg-csi-splash.png" class="u-imgresponsive" alt="">
+    </figure>
+  </div>
+  <!-- // end Splash -->
+
+  <!-- Loader -->
+  <div ng-include="'partials/loader/loader.tpl.html'"></div>
+  <!-- // end Loader -->
+
+  <!-- Svg Icons -->
+  <div ng-include="'partials/icons/icons.tpl.html'"></div>
+  <!-- // end Svg Icons -->
+
+  <!-- Menu -->
+  <div csi-menu user="main.user"></div>
+  <!-- // end Menu -->
+
+  <!-- Header -->
+  <div ng-include="'partials/layout/header.tpl.html'"></div>
+  <!-- // end Header -->
+
+  <!-- Main container -->
+  <main ui-view class="o-main u-cf anim-in-out anim-slide-below-fade" data-anim-sync="false"></main>
+  <!-- // end Main container -->
+
+  <!-- Footer -->
+  <div ng-include="'partials/layout/footer.tpl.html'"></div>
+  <!-- // end Footer -->
+
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+  window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+  ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/app.min.js"></script>
+</body>
+</html>
