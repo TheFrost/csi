@@ -31,7 +31,7 @@
         controller: 'MapCtrl as map'
       })
       .state('travelList', {
-        url: '/listado-de-viajes',
+        url: '/listado-de-viajes/:pending',
         templateUrl: 'partials/hardcode/travellist.html',
         controller: 'TravelListCtrl as travelList',
         resolve: {
@@ -41,16 +41,25 @@
       .state('travelDetail', {
         url: '/detalle-de-viaje/:travelId',
         templateUrl: 'partials/hardcode/traveldetail.html',
-        controller: 'TravelDetailCtrl as travelDetail'
+        controller: 'TravelDetailCtrl as travelDetail',
+        resolve: {
+          travelDetailData: travelDetailResolve
+        }
       })
       .state('vehicleDetail', {
         url: '/detalle-de-vehiculo/:vehicleVin',
         templateUrl: 'partials/hardcode/cardetail.html',
-        controller: 'VehicleDetailCtrl as vehicleDetail'
+        controller: 'VehicleDetailCtrl as vehicleDetail',
+        resolve: {
+          vehicleDetailData: vehicleDetailResolve
+        }
       })
       .state('config', {
         url: '/configuracion',
-        templateUrl: 'partials/hardcode/configuration.html'
+        templateUrl: 'partials/hardcode/configuration.html',
+        resolve: {
+          userData: userResolve
+        }
       });
 
     $urlRouterProvider.otherwise('/');
@@ -71,6 +80,27 @@
   */
   function travelListResolve(travelListFactory) {
     return travelListFactory.getAll();
+  }
+
+  /**
+  * @ngInject
+  */
+  function userResolve(mainFactory) {
+    return mainFactory.getUser();
+  }
+
+  /**
+  * @ngInject
+  */
+  function travelDetailResolve($stateParams, travelDetailFactory) {
+    return travelDetailFactory.getData($stateParams.travelId);
+  }
+
+  /**
+  * @ngInject
+  */
+  function vehicleDetailResolve($stateParams, vehicleDetailFactory) {
+    return vehicleDetailFactory.getData($stateParams.vehicleVin);
   }
 
 }());

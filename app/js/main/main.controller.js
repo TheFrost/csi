@@ -14,14 +14,21 @@
     var main = this;
 
     main.loading = false;
-    main.init = init;
     main.user = {
       avatar: 'img/profile-generic.jpg'
     };
 
-    //////////////////////////
+    activate();
 
-    // Privat methods
+    ////////////////////////////////////////////////
+
+    // bind events
+    $scope.$on(AUTH_EVENTS.loginSuccess, function () {
+      _getUser();
+    });
+
+    //////////////////////////////////////////////
+
     function _getUser () {
       mainFactory.getUser()
         .then(
@@ -35,29 +42,19 @@
         );
     }
 
-    // Public methods
-    function init () {
+    /*function activate () {
       $timeout(function () {
         if (AccessToken.key) {
           _getUser();
         }
       }, 500);
-    }
+    }*/
 
-    // bind events
-    $scope.$on(AUTH_EVENTS.loginSuccess, function () {
-      _getUser();
-    });
-
-    $scope.$on('loading', function () {
+    function activate () {
       $timeout(function () {
-        main.loading = true;
+        _getUser();
       }, 500);
-    });
-
-    $scope.$on('loaded', function () {
-      main.loading = false;
-    });
+    }
 
   }
 

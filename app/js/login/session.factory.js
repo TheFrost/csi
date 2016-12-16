@@ -11,6 +11,16 @@
   * @ngInject
   */
   function sessionFactory(store, AccessToken) {
+
+    var factory = {
+      create: create,
+      destroy: destroy,
+      get: get
+    };
+
+    return factory;
+
+    /////////////////////////////////////////////
     
     function create(sessionToken, sessionExpiration) {
       store.set('csi.session', {
@@ -29,11 +39,6 @@
       return store.get('csi.session');
     }
 
-    return {
-      create: create,
-      destroy: destroy,
-      get: get
-    };
   }
 
 }());

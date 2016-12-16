@@ -9,7 +9,7 @@
   /**
   * @ngInject
   */
-  function TravelDetailCtrl($scope, $stateParams, $state, travelDetailFactory) {
+  function TravelDetailCtrl($scope, $stateParams, $state, travelDetailData) {
 
     // if id does'n exist in URL stop controller right here and go home
     if (!$stateParams.travelId) {
@@ -22,6 +22,8 @@
     travelDetail.vehicles = [];
     travelDetail.goToDetail = goToDetail;
 
+    activate();
+
     ///////////////////////////////
 
     // Public Methods
@@ -29,16 +31,9 @@
       $state.go('vehicleDetail', { vehicleVin: vin });
     }
 
-    // Fetch
-    $scope.$emit('loading');
-    travelDetailFactory.getData($stateParams.travelId)
-      .then(
-        function (data) {
-          travelDetail.vehicles = data.vehicles;
-
-          $scope.$emit('loaded');
-        }
-      );
+    function activate () {
+      travelDetail.vehicles = travelDetailData.vehicles;
+    }
 
   }
 

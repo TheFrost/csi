@@ -19,6 +19,7 @@
     login.success = false;
     login.feedback = false;
     login.problem = false;
+    login.disable = false;
     login.errorMessage = '';
     login.submit = submit;
     login.credentials = {
@@ -35,6 +36,7 @@
       login.error = false;
       login.success = false;
       login.feedback = false;
+      login.disable = false;
     }
 
     function _loginSuccess(token, date) {
@@ -76,6 +78,7 @@
       console.log('Waiting feedback');
       login.feedback = true;
       login.waiting = true;
+      login.disable = true;
     }
 
     /*Public Scope*/

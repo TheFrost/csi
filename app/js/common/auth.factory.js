@@ -22,6 +22,7 @@
     ///////////////////////////////////////////////////////////////////////////////////
 
     function logout() {
+      $rootScope.$emit('loading');
       return apiFactory.send(API_ENDPOINTS.logout, 'POST')
         .then(function () {
           sessionFactory.destroy();
@@ -33,7 +34,7 @@
         });
     }
 
-    function authenticateUser() {
+    function authenticateUser(toState) {
       var session = sessionFactory.get(),
           date = '',
           today = '';
@@ -50,15 +51,15 @@
         }
 
         // if expiration false continue method
-        AccessToken.key = !AccessToken.key ? session.tkn : AccessToken.key;
+        AccessToken.key = AccessToken.key ? AccessToken.key : session.tkn;
 
         // fallback when login is true block access to login view
-        if ($location.path() === '/iniciar-sesion') {
-          $state.go('home');
+        if (toState === 'login') {
+          $rootScope.$emit('view-lock');
+        } else {
+          $rootScope.$emit('view-unlock');
         }
 
-      } else {
-        $state.go('login');
       }
     }
 

@@ -43,7 +43,7 @@
         <p class="o-login__forget">¿Olvidaste tu contraseña? <a href="#">Contáctanos</a></p>
 
 
-        <md-button class="md-primary md-raised o-login__submit u-cf" type="submit" ng-disabled="loginform.$invalid" ng-class="{
+        <md-button class="md-primary md-raised o-login__submit u-cf" type="submit" ng-disabled="loginform.$invalid || login.disable" ng-class="{
           'js-feedback': login.feedback,
           'js-waiting': login.waiting,
           'js-success': login.success,

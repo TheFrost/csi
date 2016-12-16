@@ -9,7 +9,7 @@
   /**
   * @ngInject
   */
-  function VehicleDetailCtrl($scope, $state, $stateParams, vehicleDetailFactory) {
+  function VehicleDetailCtrl($scope, $state, $stateParams, vehicleDetailData) {
 
     // if vin does'n exist in URL stop controller right here and go home
     if (!$stateParams.vehicleVin) {
@@ -20,18 +20,13 @@
 
     vehicleDetail.info = {};
 
+    activate();
+
     ////////////////////////////////////////////
 
-    // Fetch
-    $scope.$emit('loading');
-    vehicleDetailFactory.getData($stateParams.vehicleVin)
-      .then(
-        function (data) {
-          vehicleDetail.info = data.info;
-
-          $scope.$emit('loaded');
-        }
-      );
+    function activate () {
+      vehicleDetail.info = vehicleDetailData.info;
+    }
 
   }
 
