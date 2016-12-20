@@ -25,7 +25,7 @@
       return apiFactory.send(API_ENDPOINTS.getUser, 'POST')
         .then(
           function (res) {
-            var user = res.data.Records.User;
+            var user = res.Records.User;
 
             return {
               name : user.Name,

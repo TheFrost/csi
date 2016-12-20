@@ -10,7 +10,7 @@
   /**
   * @ngInject
   */
-  function loginFactory(apiFactory, sessionFactory, API_ENDPOINTS) {
+  function loginFactory($q, apiFactory, sessionFactory, API_ENDPOINTS) {
 
     var factory = {
       login: login
@@ -22,6 +22,9 @@
 
     function login(credentials) {
 
+      var defered = $q.defer(),
+          promise = defered.promise;
+
       var records = {
         'Login': {
           'username':credentials.username,
@@ -32,17 +35,30 @@
         }
       };
 
-      return apiFactory.send(API_ENDPOINTS.login, 'POST', records)
+      apiFactory.send(API_ENDPOINTS.login, 'POST', records)
         .then(
           function (res) {
-            return {
-              access: res.data.Success == 'true' ? true : false,
-              message: res.data.Operation.ErrorMessage,
-              date: res.data.Records.Token.Expiration,
-              token: res.data.Records.Token.Access_Token
+            var data = {
+              date: res.Records.Token.Expiration,
+              token: res.Records.Token.Access_Token
             };
+
+            defered.resolve(data);
+          }
+        )
+        .catch(
+          function(err) {
+
+            var responseError = {
+              message: err ? err.Operation.ErrorMessage : 'Posible problema de conexión, favor de intentar más tarde.'
+            };
+
+            defered.reject(responseError);
           }
         );
+
+
+      return promise;
     }
 
   }

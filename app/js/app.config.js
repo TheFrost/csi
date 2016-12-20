@@ -3,8 +3,7 @@
 
 
   angular.module('Csi')
-    .config(materialTheme)
-    .config(httpInterceptors);
+    .config(materialTheme);
 
   
   /**
@@ -17,16 +16,5 @@
       .accentPalette('blue');
 
   }
-
-
-  /**
-  * @ngInject
-  */
-  function httpInterceptors ($httpProvider) {
-    
-    $httpProvider.interceptors.push('authInterceptorFactory');
-
-  }
-
 
 }());

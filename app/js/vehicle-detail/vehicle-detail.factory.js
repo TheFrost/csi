@@ -34,11 +34,8 @@
         .then(
           function (res) {
             return {
-              info: res.data.Records.Vehicles[0]
+              info: res.Records.Vehicles[0]
             };
-          },
-          function () {
-            console.log('problem service');
           }
         );
         

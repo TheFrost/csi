@@ -90,15 +90,13 @@
         loginFactory.login(credentials)
           .then(
             function (res) {
-              if (res.access) {
-                _loginSuccess(res.token, res.date);
-              } else {
-                _loginFail(res.message);
-              }
+              _loginSuccess(res.token, res.date);
               // login.setCurrentUser(user);
-            },
-            function () {
-              _problemService();
+            }
+          )
+          .catch(
+            function(err) {
+              _loginFail(err.message);
             }
           );
       }, 2000);

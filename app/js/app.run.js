@@ -20,13 +20,19 @@
     //////////////////////////////////////////////////
 
     // bind events
-    $rootScope.$on('$stateChangeStart', function(evt, toState) {
+    $rootScope.$on('$stateChangeStart', function(evt, toState, toParams, fromState) {
       // validate session
-      authFactory.authenticateUser(toState.name);
+      authFactory.authenticateUser(toState.name, fromState.name);
 
-      // Block views when logged
+      // Block login view when logged
       if ($rootScope.viewLock) {
         evt.preventDefault();
+
+        if (!fromState.name && toState.name === 'login') {
+          $state.go('home');
+        }
+
+        return true;
       }
 
       // detect resolve object in route
