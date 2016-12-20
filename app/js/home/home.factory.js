@@ -31,11 +31,12 @@
         preferences: apiFactory.send(API_ENDPOINTS.getPreferences, 'POST'),
         travels: apiFactory.send(API_ENDPOINTS.getTravelList, 'POST', _travelsRecords),
         slides: apiFactory.send(API_ENDPOINTS.getSlides, 'POST')
-      }).then(function (res) {
+      })
+      .then(function (res) {
         return {
-          shortcuts: res.preferences.data.Records.User.Shortcuts,
-          survillance: res.travels.data.Records.Trips,
-          slides: res.slides.data.Records.Images
+          shortcuts: res.preferences.Records.User.Shortcuts,
+          survillance: res.travels.Records.Trips,
+          slides: res.slides.Records.Images
         };
       });
 

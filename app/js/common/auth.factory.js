@@ -34,7 +34,7 @@
         });
     }
 
-    function authenticateUser(toState) {
+    function authenticateUser(toState, fromState) {
       var session = sessionFactory.get(),
           date = '',
           today = '';
@@ -60,6 +60,8 @@
           $rootScope.$emit('view-unlock');
         }
 
+      } else if (fromState) {
+        $rootScope.$emit('view-lock');
       }
     }
 

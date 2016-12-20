@@ -9,12 +9,7 @@
   /**
   * @ngInject
   */
-  function VehicleDetailCtrl($scope, $state, $stateParams, vehicleDetailData) {
-
-    // if vin does'n exist in URL stop controller right here and go home
-    if (!$stateParams.vehicleVin) {
-      return $state.go('home');
-    }
+  function VehicleDetailCtrl(vehicleDetailData) {
 
     var vehicleDetail = this;
 

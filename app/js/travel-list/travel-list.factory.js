@@ -45,12 +45,12 @@
         }).then(function(res) {
 
           return  {
-            tab1: res.tab1.data.Records.Trips,
-            tab1Surv: res.tab1Surv.data.Records.Trips,
-            tab2: res.tab2.data.Records.Trips,
-            tab2Surv: res.tab2Surv.data.Records.Trips,
-            tab3: res.tab3.data.Records.Trips,
-            tab3Surv: res.tab3Surv.data.Records.Trips
+            tab1: res.tab1.Records.Trips,
+            tab1Surv: res.tab1Surv.Records.Trips,
+            tab2: res.tab2.Records.Trips,
+            tab2Surv: res.tab2Surv.Records.Trips,
+            tab3: res.tab3.Records.Trips,
+            tab3Surv: res.tab3Surv.Records.Trips
           };
 
         });
@@ -64,11 +64,6 @@
             function(res) {
               
               console.log(res);
-
-            },
-            function() {
-              
-              console.log('Problem service');
 
             }
           );
