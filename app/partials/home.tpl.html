@@ -1,0 +1,104 @@
+<!-- Home view -->
+<section class="o-home">
+
+  <!-- <div id="homeSlider" class="o-slider o-slider--home">
+    <div class="o-slider__slide" data-ng-repeat="slide in home.slides" style="background-image:url({{ slide }});"></div>
+  </div> -->
+
+  <ul class="o-slider o-slider--home u-listnostyle"
+    rn-carousel
+    rn-swipe-disabled
+    rn-carousel-auto-slide="5"
+    rn-carousel-transition="slide"
+    rn-carousel-duration="1000"
+    rn-carousel-easing="easeInOutQuad">
+    <li class="o-slider__slide" ng-repeat="slide in home.slides">
+      <span class="o-slider__img" style="background-image:url({{ slide }});"></span>
+    </li>
+  </ul>
+
+  <div class="o-home__content o-container">
+    <!-- Shortcuts -->
+    <div class="o-shortcuts">
+      <div class="o-shortcuts__inner">
+        <ul class="o-shortcuts__list u-listnostyle">
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Tracking">
+            <a ui-sref="map" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-map o-shortcuts__icon">
+                <use xlink:href="#icon-map"></use>
+              </svg>
+              <span class="o-shortcuts__label">Mapa de rastreo</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Travels">
+            <a ui-sref="travelList" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-list o-shortcuts__icon">
+                <use xlink:href="#icon-list"></use>
+              </svg>
+              <span class="o-shortcuts__label">Listado de viajes</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Qualification">
+            <a ui-sref="travelList({pending: 'por-calificar'})" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-feedback o-shortcuts__icon">
+                <use xlink:href="#icon-feedback"></use>
+              </svg>
+              <span class="o-shortcuts__label">Calificaciones pendientes</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Claims">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-claims o-shortcuts__icon">
+                <use xlink:href="#icon-claims"></use>
+              </svg>
+              <span class="o-shortcuts__label">Reclamos</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.NotificationsCenter">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-notifications o-shortcuts__icon">
+                <use xlink:href="#icon-notifications"></use>
+              </svg>
+              <span class="o-shortcuts__label">Centro de notificaciones</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.Configuration">
+            <a ui-sref="config" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-config o-shortcuts__icon">
+                <use xlink:href="#icon-config"></use>
+              </svg>
+              <span class="o-shortcuts__label">Configuración</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item a-fade" ng-if="home.shortcuts.HelpContact">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-help o-shortcuts__icon">
+                <use xlink:href="#icon-help"></use>
+              </svg>
+              <span class="o-shortcuts__label">Ayuda y contacto</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- // end Shortcuts -->
+
+    <!-- Home Vigilance -->
+    <div class="o-travels">
+      <header class="o-head o-travels__head">
+        <h1 class="o-head__title">En vigilancia</h1>
+      </header>
+
+      <!-- Travel list directive -->
+      <div csi-travels list="home.travels"></div>
+      <!-- // end Travel list directive -->
+
+      <footer class="o-travels__footer">
+        <a ui-sref="travelList" class="o-travels__seemore">Ver todo mi listado</a>
+      </footer>
+    </div>
+    <!-- // end Home Vigilance -->
+
+  </div>
+</section>
+<!-- // end home view -->

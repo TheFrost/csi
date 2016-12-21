@@ -1,0 +1,50 @@
+<!-- Login view -->
+<div class="o-login">
+  <div class="o-login__container">
+    <div class="o-login__inner">
+      <figure class="o-login__logo">
+        <img src="img/lg-csi-login.png" alt="">
+      </figure>
+      <h1 class="o-login__title">Iniciar Sesión</h1>
+      <form class="o-login__form" name="loginform" ng-submit="login.submit(login.credentials)">
+        
+        <md-input-container class="o-login__group">
+          <label>Ingresa tu usuario</label>
+          <input type="text" name="username" ng-model="login.credentials.username" ng-disabled="login.waiting" required>
+          <span class="o-login__input-ico"></span>
+          <div ng-messages="loginform.username.$error" ng-show="loginform.username.$dirty" class="o-message">
+            <div ng-message="required">Dato requerido</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="o-login__group">
+          <label>Ingresa tu contraseña</label>
+          <input type="password" name="password" ng-model="login.credentials.password" ng-disabled="login.waiting" required>
+          <span class="o-login__input-ico"></span>
+          <div ng-messages="loginform.password.$error" ng-show="loginform.password.$dirty" class="o-message">
+            <div ng-message="required">Dato requerido</div>
+          </div>
+        </md-input-container>
+
+        <p class="o-login__forget">¿Olvidaste tu contraseña? <a href="#">Contáctanos</a></p>
+
+        <md-button class="md-primary md-raised o-login__submit u-cf" type="submit" ng-disabled="loginform.$invalid || login.disable" ng-class="{
+          'js-feedback': login.feedback,
+          'js-waiting': login.waiting,
+          'js-success': login.success,
+          'js-error': login.error
+        }">
+          <span class="o-login__status">
+            <i class="fa"></i>
+          </span>
+          <span class="o-direction o-direction--front-white">Ingresar</span>
+        </md-button>
+
+        <span class="o-message o-message--error" ng-show="login.error" ng-bind="login.errorMessage"></span>
+        <span class="o-message o-message--success" ng-show="login.success">Bienvenido</span>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- // Login view -->

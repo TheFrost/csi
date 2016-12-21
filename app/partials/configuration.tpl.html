@@ -1,0 +1,91 @@
+<div>
+
+  <!-- Breadcrums -->
+  <div class="o-container">
+    <div class="o-breadcrums">
+      <ul class="o-breadcrums__list u-listnostyle">
+        <li class="o-breadcrums__item">
+          <a href="#" class="o-breadcrums__link">Home</a>
+        </li>
+        <li class="o-breadcrums__item js-active">
+          <a href="#" class="o-breadcrums__link">Configuración</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- // end Breadcrums -->
+
+  <!-- Page head -->
+  <header class="o-pagehead">
+    <div class="o-container">
+      <div class="o-head o-head--bordered">
+        <h1 class="o-head__title">Configuración</h1>
+      </div>
+    </div>
+  </header>
+  <!-- // end Page head -->
+
+  <!-- Cover component -->
+  <div class="o-cover o-profile__cover">
+    <div class="o-cover__info u-cf">
+      <div class="o-cover__info-inner">
+        <div class="o-cover__block">
+          <figure class="o-profile__face">
+            <img src="{{ main.user.avatar }}" class="u-imgresponsive" alt="">
+          </figure>
+        </div>
+        <div class="o-cover__block">
+          <div class="o-profile__info">
+            <span class="o-profile__name" ng-bind="main.user.name"></span>
+            <span class="o-profile__email" ng-bind="main.user.email"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // end Cover component -->
+
+
+  <div class="o-container">
+    <!-- Shortcuts -->
+    <div class="o-shortcuts o-shortcuts--transparent o-profile__shortcuts">
+      <div class="o-shortcuts__inner">
+        <ul class="o-shortcuts__list u-listnostyle">
+          <li class="o-shortcuts__item">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-shortcuts o-shortcuts__icon">
+                <use xlink:href="#icon-shortcuts"></use>
+              </svg>
+              <span class="o-shortcuts__label">Accesos directos</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-notifications o-shortcuts__icon">
+                <use xlink:href="#icon-notifications"></use>
+              </svg>
+              <span class="o-shortcuts__label">Notificaciones</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-help o-shortcuts__icon">
+                <use xlink:href="#icon-help"></use>
+              </svg>
+              <span class="o-shortcuts__label">Ayuda</span>
+            </a>
+          </li>
+          <li class="o-shortcuts__item">
+            <a href="#" class="o-shortcuts__link">
+              <svg class="o-icon o-icon-about o-shortcuts__icon">
+                <use xlink:href="#icon-about"></use>
+              </svg>
+              <span class="o-shortcuts__label">Acerca de</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- // end Shortcuts -->
+  </div>
+</div>
