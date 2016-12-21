@@ -11,7 +11,7 @@
   function csiMenu() {
     return {
       restrict: 'A',
-      templateUrl: 'partials/menu/menu.tpl.html',
+      templateUrl: 'partials/menu.tpl.html',
       replace: true,
       scope: {
         user: '='

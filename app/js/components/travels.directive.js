@@ -9,7 +9,7 @@
   function csiTravels() {
     return {
       restrict: 'A',
-      templateUrl: 'partials/travels/travels.tpl.html',
+      templateUrl: 'partials/travels.tpl.html',
       replace: true,
       scope: {
         list: '='

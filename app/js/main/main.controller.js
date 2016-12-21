@@ -42,14 +42,6 @@
         );
     }
 
-    /*function activate () {
-      $timeout(function () {
-        if (AccessToken.key) {
-          _getUser();
-        }
-      }, 500);
-    }*/
-
     function activate () {
       $timeout(function () {
         _getUser();

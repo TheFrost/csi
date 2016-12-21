@@ -24,7 +24,7 @@
       // validate session
       authFactory.authenticateUser(toState.name, fromState.name);
 
-      // Block login view when logged
+      // Redirect or stop locked views
       if ($rootScope.viewLock) {
         evt.preventDefault();
 

@@ -14,12 +14,12 @@
     $stateProvider
       .state('login', {
         url: '/iniciar-sesion',
-        templateUrl: 'partials/login/login.tpl.html',
+        templateUrl: 'partials/login.tpl.html',
         controller: 'LoginCtrl as login'
       })
       .state('home', {
         url: '/',
-        templateUrl: 'partials/home/home.tpl.html',
+        templateUrl: 'partials/home.tpl.html',
         controller: 'HomeCtrl as home',
         resolve: {
           homeData: homeResolve
@@ -27,12 +27,12 @@
       })
       .state('map', {
         url: '/mapa-de-tracking',
-        templateUrl: 'partials/map/map.tpl.html',
+        templateUrl: 'partials/map.tpl.html',
         controller: 'MapCtrl as map'
       })
       .state('travelList', {
         url: '/listado-de-viajes/:pending',
-        templateUrl: 'partials/hardcode/travellist.html',
+        templateUrl: 'partials/travel-list.tpl.html',
         controller: 'TravelListCtrl as travelList',
         resolve: {
           travelListData: travelListResolve
@@ -40,7 +40,7 @@
       })
       .state('travelDetail', {
         url: '/detalle-de-viaje/:travelId',
-        templateUrl: 'partials/hardcode/traveldetail.html',
+        templateUrl: 'partials/travel-detail.tpl.html',
         controller: 'TravelDetailCtrl as travelDetail',
         resolve: {
           travelDetailData: travelDetailResolve
@@ -48,7 +48,7 @@
       })
       .state('vehicleDetail', {
         url: '/detalle-de-vehiculo/:vehicleVin',
-        templateUrl: 'partials/hardcode/cardetail.html',
+        templateUrl: 'partials/car-detail.tpl.html',
         controller: 'VehicleDetailCtrl as vehicleDetail',
         resolve: {
           vehicleDetailData: vehicleDetailResolve
@@ -56,7 +56,7 @@
       })
       .state('config', {
         url: '/configuracion',
-        templateUrl: 'partials/hardcode/configuration.html',
+        templateUrl: 'partials/configuration.tpl.html',
         resolve: {
           userData: userResolve
         }

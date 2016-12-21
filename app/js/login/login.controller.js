@@ -63,17 +63,6 @@
       }, 3000);
     }
 
-    function _problemService() {
-      _loginFail();
-
-      login.problem = true;
-      login.errorMessage = 'Problema de conexión, intente de nuevo por favor';
-
-      $timeout(function () {
-        _resetState();
-      }, 3000);
-    }
-
     function _waitingFeedback() {
       console.log('Waiting feedback');
       login.feedback = true;
@@ -91,7 +80,6 @@
           .then(
             function (res) {
               _loginSuccess(res.token, res.date);
-              // login.setCurrentUser(user);
             }
           )
           .catch(
