@@ -42,7 +42,9 @@
         .success(function(data) {
 
           if (data.Success && data.Success === 'false') {
-            return errorResponse(defered, data);
+            errorResponse(data);
+
+            defered.reject(data);
           }
 
           defered.resolve(data);
@@ -56,7 +58,7 @@
     }
 
 
-    function errorResponse (defered, data) {
+    function errorResponse (data) {
       if (data.Operation.ErrorMessage && data.Operation.ErrorMessage === 'Sesion Expirada') {
 
         $rootScope.$emit('unauthenticated');
@@ -66,8 +68,6 @@
         $rootScope.$emit('error-response');
 
       }
-
-      defered.reject(data);
     }
 
   }
